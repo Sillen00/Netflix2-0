@@ -4,7 +4,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1></h1>
+      <h1>Netflix 2.0</h1>
     </div>
   )
 }
