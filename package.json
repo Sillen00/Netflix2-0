@@ -10,7 +10,12 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.3.0",
+    "@mantine/core": "^7.3.0",
+    "@mantine/form": "^7.3.0",
+    "@mantine/hooks": "^7.3.0",
     "@testing-library/user-event": "^14.5.1",
+    "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
