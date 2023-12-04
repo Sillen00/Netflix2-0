@@ -1,15 +1,15 @@
+import { MantineProvider } from '@mantine/core';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
-
-import { MantineProvider } from '@mantine/core';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import App from './App';
+import MovieContextProvider from './contexts/MovieContext';
+import './index.css';
 import { theme } from './mantineTheme';
 import BookMarkedPage from './pages/BookMarkedPage';
 import CategoryPage from './pages/CategoryPage';
@@ -31,7 +31,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider theme={theme}>
-      <RouterProvider router={router} />
+      <MovieContextProvider>
+        <RouterProvider router={router} />
+      </MovieContextProvider>
     </MantineProvider>
   </React.StrictMode>
 );
