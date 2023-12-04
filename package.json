@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prettierC": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "prettierW": "prettier --write \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
     "test": "vitest"
   },
@@ -16,6 +18,7 @@
     "@mantine/hooks": "^7.3.0",
     "@testing-library/user-event": "^14.5.1",
     "embla-carousel-react": "^7.1.0",
+    "prettier": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1"

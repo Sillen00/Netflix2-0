@@ -1,7 +1,5 @@
 function MovieView() {
-  return (
-    <div>MovieView</div>
-  )
+  return <div>MovieView</div>;
 }
 
-export default MovieView
+export default MovieView;

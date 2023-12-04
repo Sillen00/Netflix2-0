@@ -1,7 +1,5 @@
 function CategoryButton() {
-  return (
-    <div>CategoryButton</div>
-  )
+  return <div>CategoryButton</div>;
 }
 
-export default CategoryButton
+export default CategoryButton;

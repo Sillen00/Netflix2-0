@@ -1,7 +1,5 @@
 function MovieCard() {
-  return (
-    <div>MovieCard</div>
-  )
+  return <div>MovieCard</div>;
 }
 
-export default MovieCard
+export default MovieCard;

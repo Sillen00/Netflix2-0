@@ -10,7 +10,6 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import './index.css';
 import { theme } from './mantineTheme';
 import BookMarkedPage from './pages/BookMarkedPage';
 import CategoryPage from './pages/CategoryPage';

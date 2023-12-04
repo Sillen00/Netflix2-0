@@ -1,7 +1,5 @@
 function Searchfield() {
-  return (
-    <div>Searchfield</div>
-  )
+  return <div>Searchfield</div>;
 }
 
-export default Searchfield
+export default Searchfield;

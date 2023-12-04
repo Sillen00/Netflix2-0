@@ -1,7 +1,5 @@
 function BookMarkedPage() {
-  return (
-    <div>BookMarkedPage</div>
-  )
+  return <div>BookMarkedPage</div>;
 }
 
-export default BookMarkedPage
+export default BookMarkedPage;
