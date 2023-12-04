@@ -1,7 +1,9 @@
 function StartPage() {
   return (
-    <div>StartPage</div>
-  )
+    <div>
+      <h1>StartPage</h1>
+    </div>
+  );
 }
 
-export default StartPage
+export default StartPage;

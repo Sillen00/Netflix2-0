@@ -17,7 +17,8 @@
     "@testing-library/user-event": "^14.5.1",
     "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.5",
