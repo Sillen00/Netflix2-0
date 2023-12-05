@@ -1,8 +1,8 @@
-import '@mantine/carousel/styles.css';
-import '@mantine/core/styles.css';
-import { Outlet } from 'react-router-dom';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import "@mantine/carousel/styles.css";
+import "@mantine/core/styles.css";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   return (
