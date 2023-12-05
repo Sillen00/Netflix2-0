@@ -3,17 +3,19 @@ import styled from "@emotion/styled";
 export const StyledComponent = styled.div`
   max-width: 220px;
 
-  .tumbnail-box {
+  .thumbnail-box {
     overflow: hidden;
+    min-height: 325.36px;
+    width: 100%;
+    background-color: black;
   }
 
-  .tumbnail {
-    width: 100%;
+  .thumbnail {
     height: auto;
     display: block;
   }
 
-  .movie-card-buttom {
+  .movie-card-bottom {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -22,9 +24,7 @@ export const StyledComponent = styled.div`
   .bookmark-box {
     width: 49.6px;
     height: 49.6px;
-  }
-  .bookmark-box img {
     position: relative;
-    left: 5px;
+    left: 6px;
   }
 `;
