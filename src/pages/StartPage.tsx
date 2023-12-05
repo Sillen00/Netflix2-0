@@ -3,8 +3,8 @@ import MovieCarousel from "../components/MovieCarousel";
 function StartPage() {
   return (
     <div>
-      <h1>StartPage</h1>
-      <MovieCarousel />
+      <MovieCarousel title={"Trending"} />
+      <MovieCarousel title={"Recommended for you"} />
     </div>
   );
 }

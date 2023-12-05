@@ -3,16 +3,18 @@ import { Title } from "@mantine/core";
 import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
+interface Prop {
+  title: string;
+}
 
-function MovieCarousel() {
+function MovieCarousel({ title }: Prop) {
   const { movies } = useContext(MovieContext);
 
   return (
-    <StyledMovieCarousel>
-      <Title order={2}>title</Title>
+    <StyledMovieCarousel aria-label='Movie carousel'>
+      <Title order={2}>{title}</Title>
       <Carousel
         slideSize={{ base: "50%", sm: "33.3333%", md: "16%" }}
-        height={200}
         align='start'
         slideGap='sm'
         controlsOffset='xs'
