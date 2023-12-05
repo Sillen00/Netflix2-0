@@ -22,7 +22,9 @@ function MovieCarousel({ title }: Prop) {
       >
         {movies.map((movie, index) => (
           <Carousel.Slide key={index}>
-            <div>movieCard {movie.title}</div>
+            <img src={movie.thumbnail} alt={`${movie.title}`} />
+            <span data-testid={`year-${movie.year}-${movie.title}`}>{movie.year}</span>
+            <span data-testid={`rating-${movie.rating}-${movie.title}`}>{movie.rating}</span>
           </Carousel.Slide>
         ))}
         ;
