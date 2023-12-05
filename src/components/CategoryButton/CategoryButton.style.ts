@@ -9,11 +9,15 @@ export const StyledButton = styled.div`
   }
 
   .mantine-Button-root:focus {
-    font-weight: 800;
+    font-weight: 700;
   }
 `;
 
 export const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const StyledSelect = styled.div`
+  color: #fff;
 `;
