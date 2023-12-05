@@ -33,7 +33,7 @@ export const StyledMovieCarousel = styled.div`
 
   h2 {
     font-weight: 500;
-    margin: 1rem 0;
+    margin: 0.4rem 0;
 
     @media (max-width: 800px) {
       font-size: 1.6rem;
