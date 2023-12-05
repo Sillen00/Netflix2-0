@@ -4,7 +4,13 @@ function StartPage() {
   return (
     <div>
       <h1>StartPage</h1>
-      <MovieCard />
+      <MovieCard
+        thumbnail={
+          "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg"
+        }
+        year={"1994"}
+        age={"15"}
+      />
     </div>
   );
 }
