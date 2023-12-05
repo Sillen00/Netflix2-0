@@ -12,7 +12,7 @@ function Header() {
       {theme.colors.secondary && (
         <>
           <h1 style={{ color: theme.colors.secondary[0] }}>Netflix 2.0</h1>
-          <Title style={{ color: theme.colors.secondary[0] }}>HYPE IN THE CHAT</Title>
+          <Title style={{ color: theme.colors.secondary[0] }}>Nu ska det funka snälla</Title>
         </>
       )}
 
