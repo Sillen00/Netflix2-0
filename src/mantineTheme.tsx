@@ -1,6 +1,8 @@
 import { createTheme, rem } from "@mantine/core";
 
 export const theme = createTheme({
+  fontFamily: "Roboto, sans-serif", // Set the default font family to Roboto
+
   colors: {
     primary: [
       "#E50914", // Red
