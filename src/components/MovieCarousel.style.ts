@@ -3,8 +3,19 @@ import styled from "@emotion/styled";
 export const StyledMovieCarousel = styled.div`
   margin-left: 1rem;
   .mantine-Carousel-slide {
-    background-color: #d3d3d3;
-    margin-right: 1rem;
+    position: relative;
+
+    img {
+      width: 100%;
+      aspect-ratio: 217.35 / 320;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   .mantine-Carousel-control {
@@ -14,6 +25,10 @@ export const StyledMovieCarousel = styled.div`
     svg {
       height: 2rem;
     }
+  }
+
+  .overlay {
+    position: absolute;
   }
 
   h2 {
