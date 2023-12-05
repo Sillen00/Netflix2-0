@@ -2,7 +2,7 @@ import { Box, Image } from "@mantine/core";
 import { FaRegBookmark } from "react-icons/fa";
 import { StyledComponent } from "./MovieCard.style";
 
-interface MovieCardProps {
+export interface MovieCardProps {
   thumbnail: string;
   year: string;
   age: string;
