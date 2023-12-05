@@ -14,10 +14,11 @@ function MovieCarousel({ title }: Prop) {
     <StyledMovieCarousel aria-label='Movie carousel'>
       <Title order={2}>{title}</Title>
       <Carousel
-        slideSize={{ base: "50%", sm: "33.3333%", md: "16%" }}
+        slideSize={{ base: "60%", sm: "30%", md: "16%" }}
         align='start'
         slideGap='sm'
         controlsOffset='xs'
+        slidesToScroll={2}
         loop
       >
         {movies.map((movie, index) => (
