@@ -1,5 +1,11 @@
+import CategoryButton from "../components/CategoryButton";
+
 function CategoryPage() {
-  return <div>CategoryPage</div>;
+  return (
+    <div>
+      <CategoryButton />
+    </div>
+  );
 }
 
 export default CategoryPage;
