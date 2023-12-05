@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from 'react';
-import data from '../../data/movies.json';
+import { createContext, useEffect, useState } from "react";
+import data from "../../data/movies.json";
 
 export interface Movie {
   title: string;

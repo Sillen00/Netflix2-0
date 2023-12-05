@@ -9,6 +9,7 @@
     "prettierC": "prettier --check \"src/**/*.{ts,tsx}\"",
     "prettierW": "prettier --write \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
+    "lint": "eslint src/**/*.ts*",
     "test": "vitest"
   },
   "dependencies": {
@@ -28,9 +29,16 @@
     "@testing-library/react": "^14.1.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "^23.0.1",
-    "typescript": "^4.9.3",
+    "typescript": "^5.3.2",
     "vite": "^4.1.0",
     "vitest": "^0.34.6"
   }

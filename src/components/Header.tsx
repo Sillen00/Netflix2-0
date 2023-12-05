@@ -1,6 +1,6 @@
-import { Title } from '@mantine/core';
-import { NavLink } from 'react-router-dom';
-import { theme } from '../mantineTheme';
+import { Title } from "@mantine/core";
+import { NavLink } from "react-router-dom";
+import { theme } from "../mantineTheme";
 
 function Header() {
   if (!theme.colors || !theme.colors.primary) {
@@ -8,7 +8,7 @@ function Header() {
   }
 
   return (
-    <div style={{ backgroundColor: theme.colors.primary[0], color: '#fff' }}>
+    <div style={{ backgroundColor: theme.colors.primary[0], color: "#fff" }}>
       {theme.colors.secondary && (
         <>
           <h1 style={{ color: theme.colors.secondary[0] }}>Netflix 2.0</h1>
