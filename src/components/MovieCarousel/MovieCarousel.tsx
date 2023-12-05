@@ -1,7 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { Title } from "@mantine/core";
 import { useContext } from "react";
-import { MovieContext } from "../contexts/MovieContext";
+import { MovieContext } from "../../contexts/MovieContext";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 interface Prop {
   title: string;

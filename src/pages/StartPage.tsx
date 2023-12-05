@@ -1,4 +1,4 @@
-import MovieCarousel from "../components/MovieCarousel";
+import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
 
 function StartPage() {
   return (

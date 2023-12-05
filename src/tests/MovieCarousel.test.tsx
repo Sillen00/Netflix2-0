@@ -2,7 +2,7 @@ import { MantineProvider } from "@mantine/core";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import data from "../../data/movies.json";
-import MovieCarousel from "../components/MovieCarousel";
+import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
 import SearchProvider from "../contexts/MovieContext";
 import { theme } from "../mantineTheme";
 
