@@ -16,6 +16,10 @@ export const StyledButton = styled.div`
 export const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+
+  @media (max-width: 1210px) {
+    justify-content: left;
+  }
 `;
 
 export const StyledSelect = styled.div`
