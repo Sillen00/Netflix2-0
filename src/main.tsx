@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       <Route index element={<StartPage />} />
       <Route path='BookMarkedPage' element={<BookMarkedPage />} />
       <Route path='CategoryPage' element={<CategoryPage />} />
-      <Route path='MovieViewPage' element={<MovieViewPage />} />
+      <Route path='movie/:slug' element={<MovieViewPage />} />
       <Route path='*' element={<h2>404 not found</h2>} />
     </Route>
   )
