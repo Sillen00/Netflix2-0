@@ -1,27 +1,37 @@
-import { Box } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { StyledFooter } from "./Footer.style";
 
 function Footer() {
   return (
     <StyledFooter>
-      <Box className="link-box">
-        <NavLink to='/'>
-          <p>start</p>
-        </NavLink>
-        <NavLink to='/CategoryPage'>
-          <p>category</p>
-        </NavLink>
-        <NavLink to='/BookMarkedPage'>
-          <p>bookmarked</p>
-        </NavLink>
-        <NavLink to='/MovieViewPage'>
-          <p>movie</p>
-        </NavLink>
+      <Box className='footer-container'>
+        <Box className='link-box'>
+          <NavLink to='/'>
+            <p>Start</p>
+          </NavLink>
+          <NavLink to='/CategoryPage'>
+            <p>Category</p>
+          </NavLink>
+          <NavLink to='/BookMarkedPage'>
+            <p>Bookmarked</p>
+          </NavLink>
+          <NavLink to='/MovieViewPage'>
+            <p>Movie</p>
+          </NavLink>
+        </Box>
+        <Box>
+          <Text className="logo">NETFLIX 2.0</Text>
+        </Box>
       </Box>
-      <Box>
-        <p>LOGO</p>
-        <Box>github länkar.</Box>
+      <Text className="github-links-heading">Github Links</Text>
+      <hr />
+      <Box className="github-links-box">
+        <a href='#'>Moa</a>
+        <a href='#'>Leon</a>
+        <a href='#'>Edvin</a>
+        <a href='#'>Ellen</a>
+        <a href='#'>Simon</a>
       </Box>
     </StyledFooter>
   );
