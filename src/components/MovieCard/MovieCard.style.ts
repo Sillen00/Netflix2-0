@@ -5,7 +5,7 @@ export const StyledMovieCard = styled.div`
 
   .thumbnail-box {
     overflow: hidden;
-    min-height: 325.36px;
+    min-height: 473.25px;
     width: 100%;
     background-color: black;
   }
