@@ -13,12 +13,11 @@ function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Replace the failed image with the placeholder image
     event.currentTarget.src = "./404.png";
-    event.currentTarget.alt = "404 image not found";
   };
   return (
     <StyledMovieCard>
       <Box className='thumbnail-box'>
-        <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
+        <Image className='thumbnail' src={thumbnail} onError={() => handleImageError} alt={title} />
       </Box>
       <Box className='movie-card-bottom'>
         <Box>
