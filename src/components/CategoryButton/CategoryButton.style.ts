@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const StyledCategoryButton = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 0.5rem;
 
   @media (max-width: 1210px) {
     justify-content: left;
