@@ -1,5 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import data from "../../data/movies.json";
 import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
@@ -34,12 +34,9 @@ describe("Test for movie carousel component", () => {
       const image = screen.getByAltText(movie.title) as HTMLImageElement;
       expect(image).toBeInTheDocument();
       expect(image).toHaveAttribute("src", movie.thumbnail);
-      expect(screen.getByTestId(`year-${movie.year}-${movie.title}`)).toHaveTextContent(
-        movie.year.toString()
-      );
-      expect(screen.getByTestId(`rating-${movie.rating}-${movie.title}`)).toHaveTextContent(
-        movie.rating
-      );
+      const movieCard = screen.getByTestId(`id-${movie.title}`);
+      expect(within(movieCard).getByText(movie.year.toString())).toBeInTheDocument();
+      expect(within(movieCard).getByText(movie.rating)).toBeInTheDocument();
     });
   });
 

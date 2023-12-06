@@ -1,6 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { Title } from "@mantine/core";
 import { Movie } from "../../contexts/MovieContext";
+import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 interface Prop {
   title: string;
@@ -21,12 +22,12 @@ function MovieCarousel({ title, movies }: Prop) {
       >
         {movies.map((movie, index) => (
           <Carousel.Slide key={index}>
-            <img src={movie.thumbnail} alt={`${movie.title}`} />
-
-            <div className='overlay'>
-              <span data-testid={`year-${movie.year}-${movie.title}`}>{movie.year}</span>
-              <span data-testid={`rating-${movie.rating}-${movie.title}`}>{movie.rating}</span>
-            </div>
+            <MovieCard
+              thumbnail={movie.thumbnail}
+              year={movie.year.toString()}
+              rating={movie.rating}
+              title={movie.title}
+            />
           </Carousel.Slide>
         ))}
         ;
