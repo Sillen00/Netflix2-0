@@ -17,7 +17,7 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
   return (
     <StyledSearchResultDisplayContainer>
       {filteredMovies.length > 0 ? (
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
+        <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
           {filteredMovies.map((movie, index) => (
             <MovieCard
               key={index}
