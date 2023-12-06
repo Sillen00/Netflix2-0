@@ -15,7 +15,7 @@ function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
     event.currentTarget.src = "./404.png";
   };
   return (
-    <StyledMovieCard>
+    <StyledMovieCard data-testid={`id-${title}`}>
       <Box className='thumbnail-box'>
         <Image className='thumbnail' src={thumbnail} onError={() => handleImageError} alt={title} />
       </Box>
