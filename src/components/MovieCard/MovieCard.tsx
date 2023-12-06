@@ -1,6 +1,6 @@
 import { Box, Image } from "@mantine/core";
 import { FaRegBookmark } from "react-icons/fa";
-import { StyledComponent } from "./MovieCard.style";
+import { StyledMovieCard } from "./MovieCard.style";
 
 export interface MovieCardProps {
   thumbnail: string;
@@ -15,7 +15,7 @@ function MovieCard({ thumbnail, year, age }: MovieCardProps) {
     event.currentTarget.alt = "404 image not found";
   };
   return (
-    <StyledComponent className='card-container'>
+    <StyledMovieCard>
       <Box className='thumbnail-box'>
         <Image
           className='thumbnail'
@@ -30,10 +30,10 @@ function MovieCard({ thumbnail, year, age }: MovieCardProps) {
           <p>{age}+</p>
         </Box>
         <Box className='bookmark-box'>
-          <FaRegBookmark size={"49.6px"} />
+          <FaRegBookmark size={"40px"} />
         </Box>
       </Box>
-    </StyledComponent>
+    </StyledMovieCard>
   );
 }
 

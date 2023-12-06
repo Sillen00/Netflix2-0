@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-export const StyledComponent = styled.div`
-  max-width: 220px;
+export const StyledMovieCard = styled.div`
+  max-width: 320px;
 
   .thumbnail-box {
     overflow: hidden;
@@ -22,9 +22,7 @@ export const StyledComponent = styled.div`
   }
 
   .bookmark-box {
-    width: 49.6px;
-    height: 49.6px;
     position: relative;
-    left: 6px;
+    left: 4px;
   }
 `;
