@@ -25,7 +25,7 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
           <p>{rating}</p>
         </Box>
         <Box className='bookmark-box'>
-          <FaRegBookmark size={"20px"} />
+          <FaRegBookmark size={"30px"} />
         </Box>
       </Box>
     </StyledMovieCard>
