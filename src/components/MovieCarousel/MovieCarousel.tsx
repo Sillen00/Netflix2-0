@@ -1,15 +1,13 @@
 import { Carousel } from "@mantine/carousel";
 import { Title } from "@mantine/core";
-import { useContext } from "react";
-import { MovieContext } from "../../contexts/MovieContext";
+import { Movie } from "../../contexts/MovieContext";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 interface Prop {
   title: string;
+  movies: Movie[];
 }
 
-function MovieCarousel({ title }: Prop) {
-  const { movies } = useContext(MovieContext);
-
+function MovieCarousel({ title, movies }: Prop) {
   return (
     <StyledMovieCarousel aria-label='Movie carousel'>
       <Title order={2}>{title}</Title>
