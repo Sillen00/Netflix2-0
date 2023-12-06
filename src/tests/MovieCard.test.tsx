@@ -9,10 +9,6 @@ interface MovieCardTestProps {
   title: string;
 }
 
-it("true to be true", () => {
-  expect(true).toBe(true);
-});
-
 describe("MovieCard", () => {
   it("should render the movie title", () => {
     const movieProps: MovieCardTestProps = {
