@@ -1,4 +1,4 @@
-import { Box } from "@mantine/core";
+import { Box, Text, Title } from "@mantine/core";
 import { Movie } from "../../contexts/MovieContext";
 import { StyledMovieView } from "./MovieView.style";
 
@@ -13,12 +13,19 @@ function MovieView({ movie }: Props) {
     <StyledMovieView>
       <img src={thumbnail}></img>
       <Box>
-        <h1>{title}</h1>
-        <p>{rating}</p>
-        <p>{year}</p>
-        <p>{synopsis}</p>
-        <p>{actors}</p>
-        <p>{genre}</p>
+        <Box className='top'>
+          <Title order={4}>{year}</Title>
+          <Title order={4}>{rating}</Title>
+        </Box>
+        <Title order={1}>{title}</Title>
+        <Text>{synopsis}</Text>
+        <Title order={5}>
+          <b>Actors:</b> {actors}
+        </Title>
+        <Title order={5}>
+          <b>Genre: </b>
+          {genre}
+        </Title>
       </Box>
     </StyledMovieView>
   );
