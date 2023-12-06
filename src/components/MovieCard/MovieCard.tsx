@@ -5,11 +5,11 @@ import { StyledMovieCard } from "./MovieCard.style";
 export interface MovieCardProps {
   thumbnail: string;
   year: string;
-  age: string;
+  rating: string;
   title: string;
 }
 
-function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
+function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Replace the failed image with the placeholder image
     event.currentTarget.src = "./404.png";
@@ -22,7 +22,7 @@ function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
       <Box className='movie-card-bottom'>
         <Box>
           <p>{year}</p>
-          <p>{age}+</p>
+          <p>{rating}</p>
         </Box>
         <Box className='bookmark-box'>
           <FaRegBookmark size={"40px"} />

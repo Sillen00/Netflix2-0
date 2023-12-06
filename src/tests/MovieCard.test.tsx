@@ -5,7 +5,7 @@ import { render, screen, waitFor } from "../utils/test-utils";
 interface MovieCardTestProps {
   thumbnail: string; // Make it non-optional
   year: string;
-  age: string;
+  rating: string;
   title: string;
 }
 
@@ -14,7 +14,7 @@ describe("MovieCard", () => {
     const movieProps: MovieCardTestProps = {
       thumbnail: "https://example.com/image.jpg",
       year: "2022",
-      age: "PG-13",
+      rating: "PG-13",
       title: "Movie Title",
     };
 
@@ -29,7 +29,7 @@ describe("MovieCard", () => {
     const movieProps: MovieCardProps = {
       thumbnail: "",
       year: "2022",
-      age: "PG-13",
+      rating: "PG-13",
       title: "Movie Title",
     };
 
