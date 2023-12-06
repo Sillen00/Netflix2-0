@@ -21,17 +21,27 @@ function Footer() {
           </NavLink>
         </Box>
         <Box>
-          <Text className="logo">NETFLIX 2.0</Text>
+          <Text className='logo'>NETFLIX 2.0</Text>
         </Box>
       </Box>
-      <Text className="github-links-heading">Github Links</Text>
+      <Text className='github-links-heading'>Github Links</Text>
       <hr />
-      <Box className="github-links-box">
-        <a href='#'>Moa</a>
-        <a href='#'>Leon</a>
-        <a href='#'>Edvin</a>
-        <a href='#'>Ellen</a>
-        <a href='#'>Simon</a>
+      <Box className='github-links-box'>
+        <a target='blank' href='https://github.com/moamoa07'>
+          Moa
+        </a>
+        <a target='blank' href='https://github.com/leonbjorklund'>
+          Leon
+        </a>
+        <a target='blank' href='https://github.com/Edvindjulic'>
+          Edvin
+        </a>
+        <a target='blank' href='https://github.com/ellensofia'>
+          Ellen
+        </a>
+        <a target='blank' href='https://github.com/Sillen00'>
+          Simon
+        </a>
       </Box>
     </StyledFooter>
   );
