@@ -2,7 +2,7 @@ import { Button, Select } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useContext } from "react";
 import { MovieContext } from "../../contexts/MovieContext";
-import { StyledButton, StyledButtonContainer, StyledSelect } from "./CategoryButton.style";
+import { StyledCategoryButton } from "./CategoryButton.style";
 
 interface CategoryButtonProps {
   setSelectedGenre: (genre: string | null) => void;
@@ -20,26 +20,23 @@ function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
   };
 
   return (
-    <StyledButtonContainer>
+    <StyledCategoryButton>
       {isSmallScreen ? (
-        <StyledSelect>
-          <Select
-            label='Select Genre'
-            placeholder='Select Genre'
-            data={uniqueGenres}
-            onChange={value => handleGenreClick(value as string)}
-          />
-        </StyledSelect>
+        <Select
+          className='select'
+          label='Select Genre'
+          placeholder='Select Genre'
+          data={uniqueGenres}
+          onChange={value => handleGenreClick(value as string)}
+        />
       ) : (
         uniqueGenres.map(genre => (
           <div key={genre}>
-            <StyledButton>
-              <Button onClick={() => handleGenreClick(genre)}>{genre}</Button>
-            </StyledButton>
+            <Button onClick={() => handleGenreClick(genre)}>{genre}</Button>
           </div>
         ))
       )}
-    </StyledButtonContainer>
+    </StyledCategoryButton>
   );
 }
 

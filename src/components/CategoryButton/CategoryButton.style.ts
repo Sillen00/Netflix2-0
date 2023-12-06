@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 
-export const StyledButton = styled.div`
+export const StyledCategoryButton = styled.div`
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 1210px) {
+    justify-content: left;
+  }
+
   .mantine-Button-root {
     background: none;
     color: #fff;
@@ -11,17 +18,8 @@ export const StyledButton = styled.div`
   .mantine-Button-root:focus {
     font-weight: 700;
   }
-`;
 
-export const StyledButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  @media (max-width: 1210px) {
-    justify-content: left;
+  .select {
+    color: #fff;
   }
-`;
-
-export const StyledSelect = styled.div`
-  color: #fff;
 `;
