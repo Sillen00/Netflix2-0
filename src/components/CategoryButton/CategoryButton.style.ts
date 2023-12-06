@@ -19,8 +19,4 @@ export const StyledCategoryButton = styled.div`
   .mantine-Button-root:focus {
     font-weight: 700;
   }
-
-  .select {
-    color: #fff;
-  }
 `;

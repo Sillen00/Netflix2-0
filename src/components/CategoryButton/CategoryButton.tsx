@@ -23,7 +23,7 @@ function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
     <StyledCategoryButton>
       {isSmallScreen ? (
         <Select
-          className='select'
+          data-testid='select-component'
           label='Select Genre'
           placeholder='Select Genre'
           data={uniqueGenres}
