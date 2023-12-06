@@ -26,6 +26,6 @@ describe("MovieCard", () => {
 
     expect(screen.getByText("2022")).toBeInTheDocument();
     expect(screen.getByText("PG-13+")).toBeInTheDocument();
-    expect(screen.getByText("Movie Title")).toBeInTheDocument();
+    expect(screen.getByAltText("Movie Title")).toBeInTheDocument();
   });
 });

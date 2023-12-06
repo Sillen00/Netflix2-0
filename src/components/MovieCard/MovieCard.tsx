@@ -18,12 +18,7 @@ function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
   return (
     <StyledMovieCard>
       <Box className='thumbnail-box'>
-        <Image
-          className='thumbnail'
-          src={thumbnail}
-          onError={handleImageError}
-          alt={title}
-        />
+        <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
       </Box>
       <Box className='movie-card-bottom'>
         <Box>
