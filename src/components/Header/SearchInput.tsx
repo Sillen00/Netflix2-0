@@ -30,18 +30,20 @@ function SearchInput({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        !inputRef.current?.contains(event.target as Node) &&
-        !clearRef.current?.contains(event.target as Node)
-      ) {
-        setSearchOpen(false);
-        setSearchInput("");
+      if (!searchInput) {
+        if (
+          !inputRef.current?.contains(event.target as Node) &&
+          !clearRef.current?.contains(event.target as Node)
+        ) {
+          setSearchOpen(false);
+          setSearchInput("");
+        }
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [setSearchOpen, setSearchInput]);
+  }, [setSearchOpen, setSearchInput, searchInput]);
 
   return (
     <StyledInput
