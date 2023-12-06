@@ -13,7 +13,6 @@ function Header() {
   return (
     <>
       <StyledHeader>
-        {/* <NavLink to='/' className={hideClass}> */}
         <NavLink to='/'>
           <StyledTitle>NETFLIX 2.0</StyledTitle>
         </NavLink>

@@ -49,6 +49,7 @@ function SearchInput({
     <StyledInput
       name='search-bar'
       placeholder='Search...'
+      autoComplete='off'
       size='md'
       ref={inputRef}
       value={searchInput}
