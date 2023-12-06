@@ -6,9 +6,10 @@ export interface MovieCardProps {
   thumbnail: string;
   year: string;
   age: string;
+  title: string;
 }
 
-function MovieCard({ thumbnail, year, age }: MovieCardProps) {
+function MovieCard({ thumbnail, year, age, title }: MovieCardProps) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Replace the failed image with the placeholder image
     event.currentTarget.src = "./404.png";
@@ -21,7 +22,7 @@ function MovieCard({ thumbnail, year, age }: MovieCardProps) {
           className='thumbnail'
           src={thumbnail}
           onError={handleImageError}
-          alt='movie thumbnail'
+          alt={title}
         />
       </Box>
       <Box className='movie-card-bottom'>

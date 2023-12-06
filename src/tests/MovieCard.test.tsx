@@ -6,6 +6,7 @@ interface MovieCardTestProps {
   thumbnail: string; // Make it non-optional
   year: string;
   age: string;
+  title: string;
 }
 
 it("true to be true", () => {
@@ -18,11 +19,13 @@ describe("MovieCard", () => {
       thumbnail: "https://example.com/image.jpg",
       year: "2022",
       age: "PG-13",
+      title: "Movie Title",
     };
 
     render(<MovieCard {...movieProps} />);
 
     expect(screen.getByText("2022")).toBeInTheDocument();
     expect(screen.getByText("PG-13+")).toBeInTheDocument();
+    expect(screen.getByText("Movie Title")).toBeInTheDocument();
   });
 });
