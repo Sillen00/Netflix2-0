@@ -17,7 +17,7 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
   return (
     <StyledMovieCard data-testid={`id-${title}`}>
       <Box className='thumbnail-box'>
-        <Image className='thumbnail' src={thumbnail} onError={() => handleImageError} alt={title} />
+        <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
       </Box>
       <Box className='movie-card-bottom'>
         <Box>
