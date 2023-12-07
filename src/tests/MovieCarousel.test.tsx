@@ -1,3 +1,4 @@
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import data from "../../data/movies.json";
 import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
@@ -5,14 +6,22 @@ import { render, screen, within } from "../utils/test-utils";
 
 describe("Test for movie carousel component", () => {
   it("Should render carousel with a title", () => {
-    render(<MovieCarousel movies={data} title={"Test title"} />);
+    render(
+      <MemoryRouter>
+        <MovieCarousel movies={data} title={"Test title"} />
+      </MemoryRouter>
+    );
 
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent("Test title");
     expect(screen.getByLabelText("Movie carousel")).toBeInTheDocument();
   });
 
   it("Should render all images, with year and rating", () => {
-    render(<MovieCarousel movies={data} title={"Test title"} />);
+    render(
+      <MemoryRouter>
+        <MovieCarousel movies={data} title={"Test title"} />
+      </MemoryRouter>
+    );
 
     data.forEach(movie => {
       expect(screen.getByAltText(movie.title)).toBeInTheDocument();
