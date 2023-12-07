@@ -4,6 +4,7 @@ export const StyledFooter = styled.footer`
   color: white;
   border-top: 2px solid #f2f2f2;
   margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.65);
 
   .footer-container {
     display: flex;
