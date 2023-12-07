@@ -30,7 +30,7 @@ function MovieView({ movie }: Props) {
         <Text>{synopsis}</Text>
         <Box className='bottom'>
           <Box>
-            Actors:{" "}
+            <Text span>Actors: </Text>
             {actors.map((actor, index) => (
               <Text span variant='span' key={index}>
                 {actor}{" "}
