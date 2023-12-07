@@ -14,6 +14,7 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
     // Replace the failed image with the placeholder image
     event.currentTarget.src = "./404.png";
   };
+
   return (
     <StyledMovieCard data-testid={`id-${title}`}>
       <Box className='thumbnail-box'>

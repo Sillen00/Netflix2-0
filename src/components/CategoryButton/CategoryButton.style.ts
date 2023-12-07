@@ -5,7 +5,7 @@ export const StyledCategoryButton = styled.div`
   justify-content: center;
   margin-bottom: 0.5rem;
 
-  @media (max-width: 1240px) {
+  @media (max-width: 1210px) {
     justify-content: left;
   }
 

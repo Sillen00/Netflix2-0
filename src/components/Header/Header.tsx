@@ -23,10 +23,10 @@ function Header() {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
-          <StyledNavLink to='/categories' className={hideClass}>
+          <StyledNavLink to='/CategoryPage' className={hideClass}>
             Categories
           </StyledNavLink>
-          <StyledNavLink to='/bookmarks' className={hideClass}>
+          <StyledNavLink to='/BookMarkedPage' className={hideClass}>
             Bookmarks
           </StyledNavLink>
         </Group>
