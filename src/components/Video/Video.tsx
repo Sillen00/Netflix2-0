@@ -36,10 +36,10 @@ function Video() {
         <Box className='movie-info'>
           <Title order={2}>Inception</Title>
           <Box className='movie-actions'>
-            <UnstyledButton className='movie-action-button'>Läs mer</UnstyledButton>
+            <UnstyledButton>Läs mer</UnstyledButton>
             {!showPoster && (
-              <UnstyledButton className='movie-action-button' onClick={handleMute}>
-                {isMuted ? <HiVolumeOff aria-label='unmute' /> : <HiVolumeUp aria-label='mute' />}
+              <UnstyledButton onClick={handleMute}>
+                {isMuted ? <HiVolumeOff size={24} aria-label='unmute' /> : <HiVolumeUp size={24} aria-label='mute' />}
               </UnstyledButton>
             )}
           </Box>

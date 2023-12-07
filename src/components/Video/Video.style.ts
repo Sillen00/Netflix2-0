@@ -27,11 +27,6 @@ export const StyledVideoContainer = styled.div`
       width: 100%;
     }
 
-    .movie-actions-button {
-      width: 60px;
-      height: 30px;
-    }
-
     .aspect-ratio-media {
       ::before {
         padding-bottom: 40%;
