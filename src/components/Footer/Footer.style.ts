@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
-  background-color: black;
+  background-color: grey; // TEMPORARY!!!!!!!!
   color: white;
-  
-  .footer-container {
 
-    /* min-height: 200px; */
+  .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: top;
@@ -18,11 +16,17 @@ export const StyledFooter = styled.footer`
   }
 
   .link-box a:hover {
-    color: #44027d;
+    opacity: 0.7;
   }
 
   .logo {
+    text-decoration: none;
+  }
+
+  .logo p {
     font-size: 1.4rem;
+    color: white;
+    font-weight: 700;
   }
 
   .github-links-heading {
@@ -38,7 +42,6 @@ export const StyledFooter = styled.footer`
     align-items: center;
     width: 100%;
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    
   }
   .github-links-box a {
     color: white;

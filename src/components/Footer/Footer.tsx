@@ -16,12 +16,11 @@ function Footer() {
           <NavLink to='/BookMarkedPage'>
             <p>Bookmarked</p>
           </NavLink>
-          <NavLink to='/MovieViewPage'>
-            <p>Movie</p>
-          </NavLink>
         </Box>
         <Box>
-          <Text className='logo'>NETFLIX 2.0</Text>
+          <NavLink to='/' className='logo'>
+            <Text>NETFLIX 2.0</Text>
+          </NavLink>
         </Box>
       </Box>
       <Text className='github-links-heading'>Github Links</Text>
