@@ -39,7 +39,7 @@ function Video() {
             <UnstyledButton className='movie-action-button'>Läs mer</UnstyledButton>
             {!showPoster && (
               <UnstyledButton className='movie-action-button' onClick={handleMute}>
-                {isMuted ? <HiVolumeOff /> : <HiVolumeUp />}
+                {isMuted ? <HiVolumeOff aria-label='unmute' /> : <HiVolumeUp aria-label='mute' />}
               </UnstyledButton>
             )}
           </Box>
