@@ -13,16 +13,15 @@ export const StyledVideoContainer = styled.div`
       transform: translate(-50%, -50%);
     }
 
-    .aspect-ratio {
-      width: 100%;
-      height: auto;
+    .aspect-ratio-image {
+      ::before {
+        padding-bottom: 40%;
+      }
     }
 
     img {
       width: 100%;
-      height: auto;
       max-height: 75vh;
-      object-fit: cover;
     }
   }
 
@@ -32,14 +31,19 @@ export const StyledVideoContainer = styled.div`
     h2 {
       color: white;
       position: absolute;
-      z-index: 99;
+      z-index: 1;
       top: 50%;
       left: 2%;
     }
 
+    .aspect-ratio-video {
+      ::before {
+        padding-bottom: 40%;
+      }
+    }
+
     video {
       width: 100%;
-      height: auto;
       max-height: 75vh;
     }
   }

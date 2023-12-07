@@ -25,14 +25,14 @@ function Video() {
       {showPoster ? (
         <Box className='poster-container'>
           <Title order={1}>Inception</Title>
-          <AspectRatio ratio={16 / 9}>
+          <AspectRatio ratio={16 / 9} className='aspect-ratio-image'>
             <img src={InceptionPoster} alt='Inception poster' />
           </AspectRatio>
         </Box>
       ) : (
         <Box className='video-container'>
           <Title order={2}>Inception</Title>
-          <AspectRatio ratio={16 / 9}>
+          <AspectRatio ratio={16 / 9} className='aspect-ratio-video'>
             <video ref={videoRef} autoPlay muted>
               <source src={Inception} type='video/mp4' />
             </video>
