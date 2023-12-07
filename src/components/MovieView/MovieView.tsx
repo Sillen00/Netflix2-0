@@ -11,21 +11,35 @@ function MovieView({ movie }: Props) {
 
   return (
     <StyledMovieView>
-      <img src={thumbnail}></img>
+      <img src={thumbnail} alt={title}></img>
       <Box>
         <Box className='top'>
-          <Title order={4}>{year}</Title>
-          <Title order={4}>{rating}</Title>
+          <Box>
+            <Title order={4}>
+              <b>Year: </b>
+              {year}
+            </Title>
+            <Title order={4}>
+              <b>Rating: </b>
+              {rating}
+            </Title>
+          </Box>
+          <Box className='bookmark'></Box>
         </Box>
         <Title order={1}>{title}</Title>
         <Text>{synopsis}</Text>
-        <Title order={5}>
-          <b>Actors:</b> {actors}
-        </Title>
-        <Title order={5}>
-          <b>Genre: </b>
-          {genre}
-        </Title>
+        <Box className='bottom'>
+          <Box>
+            Actors:{" "}
+            {actors.map((actor, index) => (
+              <Text span variant='span' key={index}>
+                {actor}{" "}
+              </Text>
+            ))}
+          </Box>
+
+          <Text span>Genre: {genre}</Text>
+        </Box>
       </Box>
     </StyledMovieView>
   );
