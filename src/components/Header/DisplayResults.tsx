@@ -22,7 +22,7 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
             <MovieCard
               key={index}
               thumbnail={movie.thumbnail}
-              year={movie.year.toString()}
+              year={movie.year}
               rating={movie.rating}
               title={movie.title}
             />
