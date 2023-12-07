@@ -15,7 +15,7 @@ function MovieCarousel({ heading, movies }: Prop) {
     <StyledMovieCarousel aria-label='Movie carousel'>
       <Title order={2}>{heading}</Title>
       <Carousel
-        slideSize={{ base: "60%", sm: "30%", md: "16%" }}
+        slideSize={{ base: "60%", sm: "30%", md: "20%" }}
         align='start'
         slideGap='lg'
         controlsOffset='xs'
@@ -23,16 +23,16 @@ function MovieCarousel({ heading, movies }: Prop) {
         loop
       >
         {movies.map((movie, index) => (
-          <Link key={index} to={`/movie/${titleToSlug(movie.title)}`}>
-            <Carousel.Slide>
+          <Carousel.Slide key={index}>
+            <Link to={`/movie/${titleToSlug(movie.title)}`}>
               <MovieCard
                 thumbnail={movie.thumbnail}
                 year={movie.year}
                 rating={movie.rating}
                 title={movie.title}
               />
-            </Carousel.Slide>
-          </Link>
+            </Link>
+          </Carousel.Slide>
         ))}
         ;
       </Carousel>
