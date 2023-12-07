@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
+import Video from "../components/Video/Video";
 import { Movie, MovieContext } from "../contexts/MovieContext";
 
 function StartPage() {
@@ -18,6 +19,7 @@ function StartPage() {
 
   return (
     <div>
+      <Video />
       <MovieCarousel movies={trending} title={"Trending"} />
       <MovieCarousel movies={recommended} title={"Recommended for you"} />
     </div>
