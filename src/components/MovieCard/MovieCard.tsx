@@ -20,7 +20,8 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
         <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
       </Box>
       <Box className='movie-card-bottom'>
-        <Box>
+        <Box className='movie-card-text'>
+          <p>{title}</p>
           <p>{year}</p>
           <p>{rating}</p>
         </Box>
