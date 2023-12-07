@@ -4,7 +4,7 @@ import { StyledMovieCard } from "./MovieCard.style";
 
 export interface MovieCardProps {
   thumbnail: string;
-  year: string;
+  year: number;
   rating: string;
   title: string;
 }
@@ -25,7 +25,7 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
           <p>{rating}</p>
         </Box>
         <Box className='bookmark-box'>
-          <FaRegBookmark size={"40px"} />
+          <FaRegBookmark size={"30px"} />
         </Box>
       </Box>
     </StyledMovieCard>
