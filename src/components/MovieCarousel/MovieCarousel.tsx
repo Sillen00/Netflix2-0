@@ -15,7 +15,7 @@ function MovieCarousel({ title, movies }: Prop) {
       <Carousel
         slideSize={{ base: "60%", sm: "30%", md: "16%" }}
         align='start'
-        slideGap='sm'
+        slideGap='lg'
         controlsOffset='xs'
         slidesToScroll={2}
         loop
@@ -24,7 +24,7 @@ function MovieCarousel({ title, movies }: Prop) {
           <Carousel.Slide key={index}>
             <MovieCard
               thumbnail={movie.thumbnail}
-              year={movie.year.toString()}
+              year={movie.year}
               rating={movie.rating}
               title={movie.title}
             />
