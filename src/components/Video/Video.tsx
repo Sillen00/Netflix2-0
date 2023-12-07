@@ -1,5 +1,6 @@
-import { AspectRatio, Box, Title } from "@mantine/core";
+import { AspectRatio, Box, Title, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
+import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import Inception from "../../assets/Inception.mp4";
 import InceptionPoster from "../../assets/InceptionPoster.jpeg";
 import { StyledVideoContainer } from "./Video.style";
@@ -9,6 +10,8 @@ function Video() {
   const videoRef = useRef<HTMLVideoElement>(null);
   // State för att visa poster-bild eller video
   const [showPoster, setShowPoster] = useState(true);
+  // State för att visa unMute eller mute ikon
+  const [isMuted, setIsMuted] = useState(true);
 
   // När komponenten mountas, starta en timer som efter 3 sekunder stänger av poster-bilden och startar videon
   useEffect(() => {
@@ -20,25 +23,37 @@ function Video() {
     return () => clearTimeout(timer); // Stäng av timern när komponenten unmountas
   }, []);
 
+  const handleMute = () => {
+    setIsMuted(!isMuted);
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+    }
+  };
+
   return (
     <StyledVideoContainer>
-      {showPoster ? (
-        <Box className='poster-container'>
-          <Title order={1}>Inception</Title>
-          <AspectRatio ratio={16 / 9} className='aspect-ratio-image'>
-            <img src={InceptionPoster} alt='Inception poster' />
-          </AspectRatio>
-        </Box>
-      ) : (
-        <Box className='video-container'>
+      <Box className='video-container'>
+        <Box className='movie-info'>
           <Title order={2}>Inception</Title>
-          <AspectRatio ratio={16 / 9} className='aspect-ratio-video'>
+          <Box className='movie-actions'>
+            <UnstyledButton className='movie-action-button'>Läs mer</UnstyledButton>
+            {!showPoster && (
+              <UnstyledButton className='movie-action-button' onClick={handleMute}>
+                {isMuted ? <HiVolumeOff /> : <HiVolumeUp />}
+              </UnstyledButton>
+            )}
+          </Box>
+        </Box>
+        <AspectRatio ratio={16 / 9} className='aspect-ratio-media'>
+          {showPoster ? (
+            <img src={InceptionPoster} alt='Inception poster' />
+          ) : (
             <video ref={videoRef} autoPlay muted>
               <source src={Inception} type='video/mp4' />
             </video>
-          </AspectRatio>
-        </Box>
-      )}
+          )}
+        </AspectRatio>
+      </Box>
     </StyledVideoContainer>
   );
 }

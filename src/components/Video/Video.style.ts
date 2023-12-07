@@ -1,47 +1,44 @@
 import styled from "@emotion/styled";
 
 export const StyledVideoContainer = styled.div`
-  .poster-container {
-    position: relative;
-
-    h1 {
-      color: white;
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .aspect-ratio-image {
-      ::before {
-        padding-bottom: 40%;
-      }
-    }
-
-    img {
-      width: 100%;
-      max-height: 75vh;
-    }
-  }
-
   .video-container {
     position: relative;
 
-    h2 {
-      color: white;
+    .movie-info {
       position: absolute;
       z-index: 1;
-      top: 50%;
+      top: 65%;
       left: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      color: white;
     }
 
-    .aspect-ratio-video {
+    .movie-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .movie-actions-button {
+      width: 60px;
+      height: 30px;
+    }
+
+    .aspect-ratio-media {
       ::before {
         padding-bottom: 40%;
       }
     }
 
+    img,
     video {
       width: 100%;
       max-height: 75vh;
