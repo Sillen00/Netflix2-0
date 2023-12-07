@@ -18,6 +18,7 @@ export const StyledMovieCard = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    gap: 0.3rem;
   }
 
   .bookmark-box {
