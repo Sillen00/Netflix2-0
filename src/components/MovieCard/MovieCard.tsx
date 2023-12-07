@@ -1,6 +1,5 @@
 import { Box, Image } from "@mantine/core";
 import { FaRegBookmark } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { StyledMovieCard } from "./MovieCard.style";
 
 export interface MovieCardProps {
@@ -10,12 +9,6 @@ export interface MovieCardProps {
   title: string;
 }
 
-export const titleToSlug = (title: string) => {
-  return title
-    .toLowerCase()
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "");
-};
 function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Replace the failed image with the placeholder image
@@ -23,23 +16,21 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
   };
 
   return (
-    <Link to={`/movie/${titleToSlug(title)}`}>
-      <StyledMovieCard data-testid={`id-${title}`}>
-        <Box className='thumbnail-box'>
-          <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
+    <StyledMovieCard data-testid={`id-${title}`}>
+      <Box className='thumbnail-box'>
+        <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
+      </Box>
+      <Box className='movie-card-bottom'>
+        <Box className='movie-card-text'>
+          <p>{title}</p>
+          <p>{year}</p>
+          <p>{rating}</p>
         </Box>
-        <Box className='movie-card-bottom'>
-          <Box className='movie-card-text'>
-            <p>{title}</p>
-            <p>{year}</p>
-            <p>{rating}</p>
-          </Box>
-          <Box className='bookmark-box'>
-            <FaRegBookmark size={"30px"} />
-          </Box>
+        <Box className='bookmark-box'>
+          <FaRegBookmark size={"30px"} />
         </Box>
-      </StyledMovieCard>
-    </Link>
+      </Box>
+    </StyledMovieCard>
   );
 }
 
