@@ -3,9 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 
 function NotFound() {
   const location = useLocation();
-  console.log("location", location);
-
-  // Remove the leading slash and enclose the path in quotation marks
   const formattedPath = `"${location.pathname.slice(1)}"`;
 
   return (
@@ -14,6 +11,7 @@ function NotFound() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        height: "500px",
       }}
     >
       <Title order={2}>The page {formattedPath} was not found. </Title>
