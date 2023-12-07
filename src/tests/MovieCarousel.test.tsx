@@ -8,7 +8,7 @@ describe("Test for movie carousel component", () => {
   it("Should render carousel with a title", () => {
     render(
       <MemoryRouter>
-        <MovieCarousel movies={data} title={"Test title"} />
+        <MovieCarousel movies={data} heading={"Test title"} />
       </MemoryRouter>
     );
 
@@ -19,7 +19,7 @@ describe("Test for movie carousel component", () => {
   it("Should render all images, with year and rating", () => {
     render(
       <MemoryRouter>
-        <MovieCarousel movies={data} title={"Test title"} />
+        <MovieCarousel movies={data} heading={"Test title"} />
       </MemoryRouter>
     );
 

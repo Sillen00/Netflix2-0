@@ -6,14 +6,14 @@ import { titleToSlug } from "../../pages/MovieViewPage";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 interface Prop {
-  title: string;
+  heading: string;
   movies: Movie[];
 }
 
-function MovieCarousel({ title, movies }: Prop) {
+function MovieCarousel({ heading, movies }: Prop) {
   return (
     <StyledMovieCarousel aria-label='Movie carousel'>
-      <Title order={2}>{title}</Title>
+      <Title order={2}>{heading}</Title>
       <Carousel
         slideSize={{ base: "60%", sm: "30%", md: "16%" }}
         align='start'
@@ -23,7 +23,7 @@ function MovieCarousel({ title, movies }: Prop) {
         loop
       >
         {movies.map((movie, index) => (
-          <Link key={index} to={`/movie/${titleToSlug(title)}`}>
+          <Link key={index} to={`/movie/${titleToSlug(movie.title)}`}>
             <Carousel.Slide>
               <MovieCard
                 thumbnail={movie.thumbnail}
