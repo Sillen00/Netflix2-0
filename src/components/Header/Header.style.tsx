@@ -135,7 +135,7 @@ export const StyledSearchResultDisplayContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: gray;
+  background: #000328;
   z-index: 100;
   @media (max-width: ${breakpoints.sm}) {
     top: 5rem;
