@@ -10,10 +10,10 @@ function Footer() {
           <NavLink to='/'>
             <p>Start</p>
           </NavLink>
-          <NavLink to='/CategoryPage'>
+          <NavLink to='/categories'>
             <p>Category</p>
           </NavLink>
-          <NavLink to='/BookMarkedPage'>
+          <NavLink to='/bookmarks'>
             <p>Bookmarked</p>
           </NavLink>
         </Box>
