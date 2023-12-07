@@ -32,7 +32,9 @@ function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
       ) : (
         uniqueGenres.map(genre => (
           <div key={genre}>
-            <Button onClick={() => handleGenreClick(genre)}>{genre}</Button>
+            <Button onClick={() => handleGenreClick(genre)} data-testid={`${genre}-button`}>
+              {genre}
+            </Button>
           </div>
         ))
       )}
