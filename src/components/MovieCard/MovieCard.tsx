@@ -5,7 +5,7 @@ import { StyledMovieCard } from "./MovieCard.style";
 
 export interface MovieCardProps {
   thumbnail: string;
-  year: string;
+  year: number;
   rating: string;
   title: string;
 }
@@ -29,12 +29,13 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
           <Image className='thumbnail' src={thumbnail} onError={handleImageError} alt={title} />
         </Box>
         <Box className='movie-card-bottom'>
-          <Box>
+          <Box className='movie-card-text'>
+            <p>{title}</p>
             <p>{year}</p>
             <p>{rating}</p>
           </Box>
           <Box className='bookmark-box'>
-            <FaRegBookmark size={"40px"} />
+            <FaRegBookmark size={"30px"} />
           </Box>
         </Box>
       </StyledMovieCard>

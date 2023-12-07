@@ -1,5 +1,11 @@
+import CategoryMovieList from "../components/CategoryMovieList/CategoryMovieList";
+
 function CategoryPage() {
-  return <div>CategoryPage</div>;
+  return (
+    <div>
+      <CategoryMovieList />
+    </div>
+  );
 }
 
 export default CategoryPage;
