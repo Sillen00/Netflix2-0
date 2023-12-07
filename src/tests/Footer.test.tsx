@@ -1,4 +1,3 @@
-// import userEvent from "@testing-library/user-event";
 import { BrowserRouter as Router } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import Footer from "../components/Footer/Footer";
@@ -23,16 +22,22 @@ describe("Footer", () => {
     expect(screen.getByText("Simon")).toBeInTheDocument();
   });
 
-//   it("should work to click on the links", () => {
-//     render(
-//       <Router>
-//         <Footer />
-//       </Router>
-//     );
+  it("should check if the github links is correct href", () => {
+    render(
+      <Router>
+        <Footer />
+      </Router>
+    );
 
-//     const user = userEvent.setup();
-//     const startLink = screen.getByText("Start");
-//     user.click(startLink);
-//     expect(screen.getByText("Content of the Start page")).toBeInTheDocument();
-//   });
+    const simonGithub = screen.getByText("Simon");
+    expect(simonGithub).toHaveAttribute("href", "https://github.com/Sillen00");
+    const ellenGithub = screen.getByText("Ellen");
+    expect(ellenGithub).toHaveAttribute("href", "https://github.com/ellensofia");
+    const edvinGithub = screen.getByText("Edvin");
+    expect(edvinGithub).toHaveAttribute("href", "https://github.com/Edvindjulic");
+    const leonGithub = screen.getByText("Leon");
+    expect(leonGithub).toHaveAttribute("href", "https://github.com/leonbjorklund");
+    const moaGithub = screen.getByText("Moa");
+    expect(moaGithub).toHaveAttribute("href", "https://github.com/moamoa07");
+  });
 });

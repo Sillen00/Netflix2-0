@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
-  background-color: grey; // TEMPORARY!!!!!!!!
   color: white;
+  border-top: 2px solid #f2f2f2;
+  margin-top: 2rem;
 
   .footer-container {
     display: flex;
