@@ -26,7 +26,7 @@ export const StyledMovieView = styled.div`
   }
 
   p {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
 
   span {
