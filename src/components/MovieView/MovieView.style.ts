@@ -2,17 +2,17 @@ import styled from "@emotion/styled";
 
 export const StyledMovieView = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 4rem;
-  margin: 2rem;
+  padding: 4rem 6rem;
+  align-items: flex-start;
 
   img {
-    width: 30vw;
+    width: 25vw;
   }
 
   h1 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   h4 {
@@ -54,15 +54,23 @@ export const StyledMovieView = styled.div`
     height: 45px;
   }
 
+  .text {
+    justify-content: space-evenly;
+  }
+
   @media (max-width: 1300px) {
     gap: 2rem;
-
     > div {
       gap: 1rem;
     }
   }
-  @media (max-width: 800px) {
+
+  @media (max-width: 1000px) {
+    padding: 2rem;
+    gap: 4rem;
+
     flex-direction: column;
+    align-items: center;
 
     img {
       width: 80vw;

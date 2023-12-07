@@ -12,7 +12,7 @@ function MovieView({ movie }: Props) {
   return (
     <StyledMovieView>
       <img src={thumbnail} alt={title}></img>
-      <Box>
+      <Box className='text'>
         <Box className='top'>
           <Box>
             <Title order={4}>
@@ -26,8 +26,10 @@ function MovieView({ movie }: Props) {
           </Box>
           <Box className='bookmark'></Box>
         </Box>
-        <Title order={1}>{title}</Title>
-        <Text>{synopsis}</Text>
+        <Box>
+          <Title order={1}>{title}</Title>
+          <Text>{synopsis}</Text>
+        </Box>
         <Box className='bottom'>
           <Box>
             <Text span>Actors: </Text>
