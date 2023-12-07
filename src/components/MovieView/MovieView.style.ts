@@ -15,12 +15,12 @@ export const StyledMovieView = styled.div`
   }
 
   h4 {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: lighter;
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   h5 {
@@ -37,5 +37,44 @@ export const StyledMovieView = styled.div`
 
   .top {
     line-height: 1;
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .bookmark {
+    background-color: #fff;
+    width: 35px;
+    height: 45px;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    .title {
+      font-size: 1.5rem;
+    }
+    img {
+      width: 80vw;
+      max-width: 400px;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: lighter;
+    }
+
+    .synopsis {
+      font-size: 1.25rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+      font-weight: lighter;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
   }
 `;

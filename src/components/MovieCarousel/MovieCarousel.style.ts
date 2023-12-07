@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 
 export const StyledMovieCarousel = styled.div`
   margin-left: 1rem;
+  a {
+    text-decoration: none;
+  }
+
   .mantine-Carousel-slide {
     position: relative;
 
