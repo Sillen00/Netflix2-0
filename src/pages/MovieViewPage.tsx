@@ -1,8 +1,14 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { titleToSlug } from "../components/MovieCard/MovieCard";
 import MovieView from "../components/MovieView/MovieView";
 import { MovieContext } from "../contexts/MovieContext";
+
+export const titleToSlug = (title: string) => {
+  return title
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+};
 
 function MovieViewPage() {
   const { movies } = useContext(MovieContext);

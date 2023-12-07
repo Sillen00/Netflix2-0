@@ -1,6 +1,8 @@
 import { Carousel } from "@mantine/carousel";
 import { Title } from "@mantine/core";
+import { Link } from "react-router-dom";
 import { Movie } from "../../contexts/MovieContext";
+import { titleToSlug } from "../../pages/MovieViewPage";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 interface Prop {
@@ -21,14 +23,16 @@ function MovieCarousel({ title, movies }: Prop) {
         loop
       >
         {movies.map((movie, index) => (
-          <Carousel.Slide key={index}>
-            <MovieCard
-              thumbnail={movie.thumbnail}
-              year={movie.year}
-              rating={movie.rating}
-              title={movie.title}
-            />
-          </Carousel.Slide>
+          <Link key={index} to={`/movie/${titleToSlug(title)}`}>
+            <Carousel.Slide>
+              <MovieCard
+                thumbnail={movie.thumbnail}
+                year={movie.year}
+                rating={movie.rating}
+                title={movie.title}
+              />
+            </Carousel.Slide>
+          </Link>
         ))}
         ;
       </Carousel>
