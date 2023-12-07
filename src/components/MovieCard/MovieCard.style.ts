@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 
 export const StyledMovieCard = styled.div`
-  max-width: 320px;
-
   .thumbnail-box {
     overflow: hidden;
     width: 100%;
