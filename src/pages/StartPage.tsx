@@ -19,7 +19,7 @@ function StartPage() {
 
   return (
     <div>
-      <Video />
+      <Video movies={movies} />
       <MovieCarousel movies={trending} heading={"Trending"} />
       <MovieCarousel movies={recommended} heading={"Recommended for you"} />
     </div>

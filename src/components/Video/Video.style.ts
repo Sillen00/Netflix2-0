@@ -15,9 +15,9 @@ export const StyledVideoContainer = styled.div`
       align-items: center;
       background-color: rgba(0, 0, 0, 0.25);
       border-radius: 10px;
-      padding: 30px;
+      padding: 2rem;
       text-align: center;
-      color: white;
+      color: #fff;
     }
 
     .movie-actions {
@@ -25,6 +25,10 @@ export const StyledVideoContainer = styled.div`
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .aspect-ratio-media {
