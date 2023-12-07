@@ -19,3 +19,7 @@ span,
 a {
   color: var(--mantine-color-white);
 }
+
+.App {
+  position: relative;
+}
