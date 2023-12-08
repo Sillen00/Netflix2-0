@@ -18,7 +18,6 @@ interface MovieContextValue {
   setBookmarkedMovies: (bookmarkedMovies: Movie[]) => void;
 }
 
-
 interface Props {
   children: React.ReactNode;
 }
@@ -37,5 +36,9 @@ export default function SearchProvider({ children }: Props) {
     setBookmarkedMovies([]);
   }, []);
 
-  return <MovieContext.Provider value={{ movies, bookmarkedMovies, setBookmarkedMovies }}>{children}</MovieContext.Provider>;
+  return (
+    <MovieContext.Provider value={{ movies, bookmarkedMovies, setBookmarkedMovies }}>
+      {children}
+    </MovieContext.Provider>
+  );
 }

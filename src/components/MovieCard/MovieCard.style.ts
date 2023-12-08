@@ -22,5 +22,6 @@ export const StyledMovieCard = styled.div`
   .bookmark-box {
     position: relative;
     left: 4px;
+    color: white;
   }
 `;
