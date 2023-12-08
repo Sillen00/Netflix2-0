@@ -1,4 +1,4 @@
-name: Linting and Testing
+name: Linting, prettier and Testing
 
 on: #this workflow runs on pull requests and pushes to main or master
   pull_request:
