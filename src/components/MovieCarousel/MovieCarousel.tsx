@@ -1,10 +1,10 @@
 import { Carousel } from "@mantine/carousel";
-import { Title } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Title, rem } from "@mantine/core";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Movie } from "../../contexts/MovieContext";
-import { titleToSlug } from "../../pages/MovieViewPage";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
+
 interface Prop {
   heading: string;
   movies: Movie[];
@@ -21,17 +21,12 @@ function MovieCarousel({ heading, movies }: Prop) {
         controlsOffset='xs'
         slidesToScroll={2}
         loop
+        nextControlIcon={<FaChevronRight style={{ width: rem(24), height: rem(24) }} />}
+        previousControlIcon={<FaChevronLeft style={{ width: rem(24), height: rem(24) }} />}
       >
         {movies.map((movie, index) => (
           <Carousel.Slide key={index}>
-            <Link to={`/movie/${titleToSlug(movie.title)}`}>
-              <MovieCard
-                thumbnail={movie.thumbnail}
-                year={movie.year}
-                rating={movie.rating}
-                title={movie.title}
-              />
-            </Link>
+            <MovieCard {...movie} />
           </Carousel.Slide>
         ))}
         ;
