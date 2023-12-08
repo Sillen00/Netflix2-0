@@ -1,6 +1,7 @@
 import { ActionIcon, CloseButton } from "@mantine/core";
 import { useEffect, useRef } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import { useLocation } from "react-router-dom";
 import { StyledInput } from "./Header.style";
 
 interface SearchInputProps {
@@ -17,7 +18,7 @@ function SearchInput({
 }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const clearRef = useRef<HTMLButtonElement>(null);
-
+  const location = useLocation();
   const toggleSearch = () => {
     setSearchOpen(!isSearchOpen);
     inputRef.current?.focus();
@@ -29,21 +30,30 @@ function SearchInput({
   };
 
   useEffect(() => {
+    // stäng search när vi byter sida
+    setSearchOpen(false);
+    setSearchInput("");
+  }, [location.pathname, setSearchOpen, setSearchInput]);
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!searchInput) {
         if (
           !inputRef.current?.contains(event.target as Node) &&
           !clearRef.current?.contains(event.target as Node)
         ) {
-          setSearchOpen(false);
           setSearchInput("");
+          setSearchOpen(false);
         }
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [setSearchOpen, setSearchInput, searchInput]);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [location, setSearchOpen, setSearchInput, searchInput]);
 
   return (
     <StyledInput
