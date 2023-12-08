@@ -10,7 +10,7 @@ interface CategoryButtonProps {
 
 function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
   const { movies } = useContext(MovieContext);
-  const isSmallScreen = useMediaQuery("(max-width: 1210px)");
+  const isSmallScreen = useMediaQuery("(max-width: 1240px)");
 
   const allGenres = movies.flatMap(movie => movie.genre.split(", "));
   const uniqueGenres = [...new Set(allGenres)];

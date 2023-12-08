@@ -1,7 +1,7 @@
 import { createTheme, rem } from "@mantine/core";
 
 export const theme = createTheme({
-  fontFamily: "Roboto, sans-serif", // Set the default font family to Roboto
+  fontFamily: "Inter, sans-serif", // Set the default font family to Roboto
 
   // breakpoints: {
   //   xs: "30em",
