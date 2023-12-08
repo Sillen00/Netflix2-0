@@ -20,7 +20,7 @@ function Video({ movies }: Prop) {
   const [isMuted, setIsMuted] = useState(true);
 
   const movie = movies.find(movie => movie.title === "Inception");
-  
+
   const handleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
@@ -48,11 +48,11 @@ function Video({ movies }: Prop) {
               Read more
             </Link>
             {!showPoster && (
-              <UnstyledButton className="mute-wrapper" onClick={handleMute}>
+              <UnstyledButton className='mute-wrapper' onClick={handleMute}>
                 {isMuted ? (
-                  <HiVolumeOff className="mute" aria-label='unmute' />
+                  <HiVolumeOff className='mute' aria-label='unmute' />
                 ) : (
-                  <HiVolumeUp className="mute"  aria-label='mute' />
+                  <HiVolumeUp className='mute' aria-label='mute' />
                 )}
               </UnstyledButton>
             )}
@@ -62,7 +62,7 @@ function Video({ movies }: Prop) {
           {showPoster ? (
             <img src={InceptionPoster} alt='Inception poster' />
           ) : (
-            <video ref={videoRef} autoPlay muted>
+            <video ref={videoRef} autoPlay muted onEnded={() => setShowPoster(true)}>
               <source src={Inception} type='video/mp4' />
             </video>
           )}
