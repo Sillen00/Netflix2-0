@@ -1,6 +1,8 @@
+import { useContext } from "react";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { Movie, MovieContext } from "../../contexts/MovieContext";
 import { Box, Image, Text, Title } from "@mantine/core";
 import { useState } from "react";
-import { Movie } from "../../contexts/MovieContext";
 import { StyledMovieView } from "./MovieView.style";
 
 interface Props {
@@ -14,6 +16,23 @@ function MovieView({ movie }: Props) {
     setImageSrc("../404.png");
   };
   const { title, genre, synopsis, year, rating, actors } = movie;
+
+  const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
+
+  const handleBookmarkClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
+    e.preventDefault();
+
+    // Check if the movie is already bookmarked
+    const isBookmarked = bookmarkedMovies.some(m => m.title === movie.title);
+
+    // If it's bookmarked, remove it; otherwise, add it
+    const updatedBookmarkedMovies = isBookmarked
+      ? bookmarkedMovies.filter(m => m.title !== movie.title)
+      : [...bookmarkedMovies, movie];
+
+    // Update the bookmarkedMovies state with the new array
+    setBookmarkedMovies(updatedBookmarkedMovies);
+  };
 
   return (
     <StyledMovieView>
@@ -30,7 +49,13 @@ function MovieView({ movie }: Props) {
               {rating}
             </Title>
           </Box>
-          <Box className='bookmark'></Box>
+          <Box onClick={handleBookmarkClick} className='bookmark'>
+            {bookmarkedMovies.some(m => m.title === movie.title) ? (
+              <FaBookmark size={"30px"} />
+            ) : (
+              <FaRegBookmark size={"30px"} />
+            )}
+          </Box>
         </Box>
         <Box>
           <Title order={1}>{title}</Title>
