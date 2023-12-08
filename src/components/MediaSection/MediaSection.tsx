@@ -50,9 +50,9 @@ function Video({ movies }: Prop) {
             {!showPoster && (
               <UnstyledButton onClick={handleMute}>
                 {isMuted ? (
-                  <HiVolumeOff size={24} aria-label='unmute' />
+                  <HiVolumeOff className="mute" aria-label='unmute' />
                 ) : (
-                  <HiVolumeUp size={24} aria-label='mute' />
+                  <HiVolumeUp className="mute"  aria-label='mute' />
                 )}
               </UnstyledButton>
             )}

@@ -7,7 +7,7 @@ export const StyledVideoContainer = styled.div`
     .movie-info {
       position: absolute;
       z-index: 1;
-      top: 65%;
+      bottom: 10%;
       left: 2%;
       display: flex;
       flex-direction: column;
@@ -19,13 +19,10 @@ export const StyledVideoContainer = styled.div`
       text-align: center;
       color: #fff;
 
-      @media (max-width: 1000px) {
-        top: 45%;
+      @media (max-width: 800px) {
         padding: 1.5rem;
       }
-
       @media (max-width: 500px) {
-        top: 30%;
         padding: 1rem;
       }
 
@@ -49,6 +46,19 @@ export const StyledVideoContainer = styled.div`
         text-decoration: none;
         @media (max-width: 800px) {
           font-size: 0.8rem;
+        }
+      }
+
+      .mute {
+        width: 24px;
+        height: 24px;
+        @media (max-width: 800px) {
+          width: 20px;
+          height: 20px;
+        }
+        @media (max-width: 500px) {
+          width: 16px;
+          height: 16px;
         }
       }
     }
