@@ -19,8 +19,10 @@ function Video({ movies }: Prop) {
   // State för att visa unMute eller mute ikon
   const [isMuted, setIsMuted] = useState(true);
 
+  // Hämta Inception-filmen från movies-arrayen
   const movie = movies.find(movie => movie.title === "Inception");
 
+  // Funktion för att mutea och unMutea videon
   const handleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
@@ -36,7 +38,7 @@ function Video({ movies }: Prop) {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []); // Empty dependency array to run the effect only once
+  }, []); // Tom array för att useEffect bara ska köras en gång
 
   return (
     <StyledVideoContainer>
