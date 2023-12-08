@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const StyledMovieCarousel = styled.div`
   margin-left: 1.5rem;
+  margin-top: 2rem;
   a {
     text-decoration: none;
   }

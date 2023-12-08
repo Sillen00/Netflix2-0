@@ -6,6 +6,10 @@ export const StyledMovieCard = styled.div`
     width: 100%;
     background-color: black;
   }
+  img {
+    aspect-ratio: 217.35 / 320;
+    object-fit: cover;
+  }
 
   .thumbnail {
     height: auto;
