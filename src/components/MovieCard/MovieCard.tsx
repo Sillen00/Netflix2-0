@@ -1,5 +1,7 @@
 import { Box, Image } from "@mantine/core";
+import { useContext } from "react";
 import { FaRegBookmark } from "react-icons/fa";
+import { MovieContext } from "../../contexts/MovieContext";
 import { StyledMovieCard } from "./MovieCard.style";
 
 export interface MovieCardProps {
@@ -10,9 +12,26 @@ export interface MovieCardProps {
 }
 
 function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
+  const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
+
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Replace the failed image with the placeholder image
     event.currentTarget.src = "./404.png";
+  };
+
+  const handleBookmarkClick = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.preventDefault();
+
+    // Check if the movie is already bookmarked
+    const isBookmarked = bookmarkedMovies.includes(title);
+
+    // If it's bookmarked, remove it; otherwise, add it
+    const updatedBookmarkedMovies = isBookmarked
+      ? bookmarkedMovies.filter(movie => movie !== title)
+      : [...bookmarkedMovies, title];
+
+    // Update the bookmarkedMovies state with the new array
+    setBookmarkedMovies(updatedBookmarkedMovies);
   };
 
   return (
@@ -27,7 +46,7 @@ function MovieCard({ thumbnail, year, rating, title }: MovieCardProps) {
           <p>{rating}</p>
         </Box>
         <Box className='bookmark-box'>
-          <FaRegBookmark size={"30px"} />
+          <FaRegBookmark onClick={() => handleBookmarkClick} size={"30px"} />
         </Box>
       </Box>
     </StyledMovieCard>

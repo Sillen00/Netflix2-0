@@ -1,5 +1,11 @@
-function BookMarkedPage() {
-  return <div>BookMarkedPage</div>;
+// import BookmarkedMovies from "../components/BookmarkedMovies/BookmarkedMovies";
+
+function BookmarkedPage() {
+  return (
+    <div>
+      {/* <BookmarkedMovies /> */}
+    </div>
+  );
 }
 
-export default BookMarkedPage;
+export default BookmarkedPage;

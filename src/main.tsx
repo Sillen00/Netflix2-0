@@ -11,7 +11,7 @@ import App from "./App";
 import MovieContextProvider from "./contexts/MovieContext";
 import "./index.css";
 import { theme } from "./mantineTheme";
-import BookMarkedPage from "./pages/BookMarkedPage";
+import BookMarkedPage from "./pages/BookmarkedPage";
 import CategoryPage from "./pages/CategoryPage";
 import MovieViewPage from "./pages/MovieViewPage";
 import StartPage from "./pages/StartPage";
