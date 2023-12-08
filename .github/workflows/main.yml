@@ -23,6 +23,9 @@ jobs:
 
       - name: Run linting
         run: npm run lint
+      - name: Run prettier
+        run: npm run prettierW
+
   testing: #name of first job
     runs-on: ubuntu-latest #sets the env which this job runs on
     needs: linting
