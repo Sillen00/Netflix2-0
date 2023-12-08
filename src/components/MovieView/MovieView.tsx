@@ -1,6 +1,7 @@
 import { Box, Text, Title } from "@mantine/core";
 import { useContext } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import errorImg from "../../../public/404.png";
 import { Movie, MovieContext } from "../../contexts/MovieContext";
 import { StyledMovieView } from "./MovieView.style";
 
@@ -9,6 +10,9 @@ interface Props {
 }
 
 function MovieView({ movie }: Props) {
+  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = errorImg;
+  };
   const { title, thumbnail, genre, synopsis, year, rating, actors } = movie;
 
   const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
@@ -30,7 +34,7 @@ function MovieView({ movie }: Props) {
 
   return (
     <StyledMovieView>
-      <img src={thumbnail} alt={title}></img>
+      <img src={thumbnail} alt={title} onError={handleImageError}></img>
       <Box className='text'>
         <Box className='top'>
           <Box>

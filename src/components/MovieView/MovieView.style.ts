@@ -8,6 +8,9 @@ export const StyledMovieView = styled.div`
 
   img {
     width: 25vw;
+    background-color: black;
+    aspect-ratio: 217.35/320;
+    object-fit: contain;
   }
 
   h1 {

@@ -129,6 +129,9 @@ export const StyledInput = styled(Input, {
 // DisplayResults styles:
 
 export const StyledSearchResultDisplayContainer = styled.div`
+  a {
+    text-decoration: none;
+  }
   padding: 2rem;
   position: absolute;
   top: 6rem;

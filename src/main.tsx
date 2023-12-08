@@ -14,16 +14,17 @@ import { theme } from "./mantineTheme";
 import BookMarkedPage from "./pages/BookmarkedPage";
 import CategoryPage from "./pages/CategoryPage";
 import MovieViewPage from "./pages/MovieViewPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import StartPage from "./pages/StartPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index element={<StartPage />} />
-      <Route path='BookMarkedPage' element={<BookMarkedPage />} />
-      <Route path='CategoryPage' element={<CategoryPage />} />
+      <Route path='bookmarks' element={<BookMarkedPage />} />
+      <Route path='categories' element={<CategoryPage />} />
       <Route path='movie/:slug' element={<MovieViewPage />} />
-      <Route path='*' element={<h2>404 not found</h2>} />
+      <Route path='*' element={<NotFoundPage />} />
     </Route>
   )
 );
