@@ -17,7 +17,7 @@ function MovieView({ movie }: Props) {
 
   return (
     <StyledMovieView>
-      <Image src={imageSrc} onError={handleImageError} />
+      <Image src={imageSrc} onError={handleImageError} alt={title} />
       <Box className='text'>
         <Box className='top'>
           <Box>
