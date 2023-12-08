@@ -6,7 +6,7 @@ import { MovieContext } from "../../contexts/MovieContext";
 import { titleToSlug } from "../../pages/MovieViewPage";
 import { StyledMovieCard } from "./MovieCard.style";
 
-export interface Movie {
+export interface MovieProps {
   title: string;
   year: number;
   rating: string;
@@ -17,7 +17,7 @@ export interface Movie {
   isTrending?: boolean;
 }
 
-function MovieCard(movie: Movie) {
+function MovieCard(movie: MovieProps) {
   const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
 
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
