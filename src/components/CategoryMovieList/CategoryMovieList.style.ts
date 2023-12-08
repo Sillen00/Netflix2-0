@@ -5,13 +5,4 @@ export const StyledCategoryMovieList = styled.div`
   a {
     text-decoration: none;
   }
-
-  a {
-    text-decoration: none;
-  }
-
-  .grid-item {
-    display: flex;
-    justify-content: center;
-  }
 `;

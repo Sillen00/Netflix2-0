@@ -1,8 +1,10 @@
 import { Carousel } from "@mantine/carousel";
-import { Title } from "@mantine/core";
+import { Title, rem } from "@mantine/core";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Movie } from "../../contexts/MovieContext";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
+
 interface Prop {
   heading: string;
   movies: Movie[];
@@ -19,6 +21,8 @@ function MovieCarousel({ heading, movies }: Prop) {
         controlsOffset='xs'
         slidesToScroll={2}
         loop
+        nextControlIcon={<FaChevronRight style={{ width: rem(24), height: rem(24) }} />}
+        previousControlIcon={<FaChevronLeft style={{ width: rem(24), height: rem(24) }} />}
       >
         {movies.map((movie, index) => (
           <Carousel.Slide key={index}>
