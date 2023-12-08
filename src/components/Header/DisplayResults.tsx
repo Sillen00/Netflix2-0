@@ -8,10 +8,9 @@ import { StyledSearchResultDisplayContainer } from "./Header.style";
 
 interface DisplayResultsProps {
   searchInput: string;
-  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function DisplayResults({ searchInput, setSearchOpen }: DisplayResultsProps) {
+function DisplayResults({ searchInput }: DisplayResultsProps) {
   const filteredMovies = useMemo(() => {
     if (!searchInput) return [];
     return movies.filter(movie => movie.title.toLowerCase().includes(searchInput.toLowerCase()));
@@ -22,11 +21,7 @@ function DisplayResults({ searchInput, setSearchOpen }: DisplayResultsProps) {
       {filteredMovies.length > 0 ? (
         <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
           {filteredMovies.map((movie, index) => (
-            <Link
-              key={index}
-              to={`/movie/${titleToSlug(movie.title)}`}
-              onClick={() => setSearchOpen(false)}
-            >
+            <Link key={index} to={`/movie/${titleToSlug(movie.title)}`}>
               <MovieCard
                 thumbnail={movie.thumbnail}
                 year={movie.year}
