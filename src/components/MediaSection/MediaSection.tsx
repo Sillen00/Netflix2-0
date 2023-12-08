@@ -45,10 +45,10 @@ function Video({ movies }: Prop) {
           <Title order={2}>{movie?.title}</Title>
           <Box className='movie-actions'>
             <Link to={`/movie/inception`} className='action-link'>
-              Läs mer
+              Read more
             </Link>
             {!showPoster && (
-              <UnstyledButton onClick={handleMute}>
+              <UnstyledButton className="mute-wrapper" onClick={handleMute}>
                 {isMuted ? (
                   <HiVolumeOff className="mute" aria-label='unmute' />
                 ) : (

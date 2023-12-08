@@ -20,7 +20,7 @@ describe("App Functionality", () => {
     const image = await screen.findByAltText("The Matrix");
     expect(image).toBeInTheDocument();
   });
-  it("should be able to navigate from Läs mer to MovieViewPage for Inception", async () => {
+  it("should be able to navigate from Read more to MovieViewPage for Inception", async () => {
     render(
       <MemoryRouter>
         <Routes>
@@ -29,8 +29,8 @@ describe("App Functionality", () => {
         </Routes>
       </MemoryRouter>
     );
-    expect(screen.getByText("Läs mer")).toBeInTheDocument();
-    await userEvent.click(screen.getByText("Läs mer"));
+    expect(screen.getByText("Read more")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Read more"));
     expect(
       screen.getByText(
         "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster."

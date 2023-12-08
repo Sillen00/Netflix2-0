@@ -41,12 +41,19 @@ export const StyledVideoContainer = styled.div`
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
+      height: 47.8px;
+      align-items: center;
 
       .action-link {
         text-decoration: none;
         @media (max-width: 800px) {
           font-size: 0.8rem;
         }
+      }
+
+      .mute-wrapper {
+        align-items: center;
+        display: flex;
       }
 
       .mute {
