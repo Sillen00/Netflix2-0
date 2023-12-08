@@ -1,32 +1,41 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: Linting and Testing
 
-name: Node.js CI
+on: #this workflow runs on pull requests and pushes to main or master
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
 
-on:
-    push:
-        branches: ['main']
-    pull_request:
-        branches: ['main']
-    # workflow_dispatch: # Manually trigger the workflow
-
+#this is a list of all jobs
 jobs:
-    client:
-        runs-on: ubuntu-latest
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout #checks out our current branch so this runner has the latest code
+        uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
+      - name: Setup Node
+        uses: actions/setup-node@v3 #this is also a pre-defined action
+        with:
+          node-version: 20
 
-        strategy:
-            matrix:
-                node-version: [18.x]
-                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
-                  cache-dependency-path: package-lock.json
-            - run: npm test
-            - run: npm run prettierW
-            - run: npm run lint
-            - run: npm run build
+      - name: NPM Install #we now need to install all our dependencies in this environment
+        run: npm ci #npm clean install - does not write to package.json
+
+      - name: Run linting
+        run: npm run lint
+  testing: #name of first job
+    runs-on: ubuntu-latest #sets the env which this job runs on
+    needs: linting
+    steps: #defines the steps necessary
+      - name: Checkout #checks out our current branch so this runner has the latest code
+        uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
+      - name: Setup Node
+        uses: actions/setup-node@v3 #this is also a pre-defined action
+        with:
+          node-version: 20
+
+      - name: NPM Install #we now need to install all our dependencies in this environment
+        run: npm ci #npm clean install - does not write to package.json
+
+      - name: Run tests #if npm test throws and error this workflow fails.
+        run: npm test
