@@ -46,6 +46,9 @@ export const StyledVideoContainer = styled.div`
 
       .action-link {
         text-decoration: none;
+        :hover {
+          font-weight: bold;
+        }
         @media (max-width: 800px) {
           font-size: 0.8rem;
         }
