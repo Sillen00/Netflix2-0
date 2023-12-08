@@ -18,6 +18,25 @@ export const StyledVideoContainer = styled.div`
       padding: 2rem;
       text-align: center;
       color: #fff;
+
+      @media (max-width: 1000px) {
+        top: 45%;
+        padding: 1.5rem;
+      }
+
+      @media (max-width: 500px) {
+        top: 30%;
+        padding: 1rem;
+      }
+
+      h2 {
+        @media (max-width: 800px) {
+          font-size: 1.6rem;
+        }
+        @media (max-width: 500px) {
+          font-size: 1.2rem;
+        }
+      }
     }
 
     .movie-actions {
@@ -26,8 +45,11 @@ export const StyledVideoContainer = styled.div`
       justify-content: space-between;
       width: 100%;
 
-      a {
+      .action-link {
         text-decoration: none;
+        @media (max-width: 800px) {
+          font-size: 0.8rem;
+        }
       }
     }
 

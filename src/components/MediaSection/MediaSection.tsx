@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import Inception from "../../assets/Inception.mp4";
 import InceptionPoster from "../../assets/InceptionPoster.jpeg";
 import { Movie } from "../../contexts/MovieContext";
-import { titleToSlug } from "../../pages/MovieViewPage";
-import { StyledVideoContainer } from "./Video.style";
+import { StyledVideoContainer } from "./MediaSection.style";
 
 interface Prop {
   movies: Movie[];
@@ -20,10 +19,14 @@ function Video({ movies }: Prop) {
   // State för att visa unMute eller mute ikon
   const [isMuted, setIsMuted] = useState(true);
 
-  const movie = movies.find(movie => movie.title === 'Inception');
-  if (!movie) {
-    return null;
-  }
+  const movie = movies.find(movie => movie.title === "Inception");
+  
+  const handleMute = () => {
+    setIsMuted(!isMuted);
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+    }
+  };
 
   // När komponenten mountas, starta en timer som efter 3 sekunder stänger av poster-bilden och startar videon
   useEffect(() => {
@@ -32,23 +35,18 @@ function Video({ movies }: Prop) {
       videoRef.current?.play();
     }, 3000);
 
-    return () => clearTimeout(timer); // Stäng av timern när komponenten unmountas
-  }, []);
-
-  const handleMute = () => {
-    setIsMuted(!isMuted);
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-    }
-  };
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array to run the effect only once
 
   return (
     <StyledVideoContainer>
       <Box className='video-container'>
         <Box className='movie-info'>
-          <Title order={2}>{movie.title}</Title>
+          <Title order={2}>{movie?.title}</Title>
           <Box className='movie-actions'>
-            <Link to={`/movie/${titleToSlug(movie.title)}`}>Läs mer</Link>
+            <Link to={`/movie/inception`} className='action-link'>
+              Läs mer
+            </Link>
             {!showPoster && (
               <UnstyledButton onClick={handleMute}>
                 {isMuted ? (

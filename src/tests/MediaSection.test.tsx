@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import { describe, expect, it } from "vitest";
-import Video from "../components/Video/Video";
+import MediaSection from "../components/MediaSection/MediaSection";
 import { render, screen } from "../utils/test-utils";
 
 const movies = [
@@ -22,7 +22,7 @@ describe("Tests for Video component", () => {
   it("should render the poster image and title when the component mounts", () => {
     render(
       <MemoryRouter>
-        <Video movies={movies} />
+        <MediaSection movies={movies} />
       </MemoryRouter>
     );
     expect(screen.getByAltText("Inception poster")).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe("Tests for Video component", () => {
   it("should render the video and title after 3 seconds", async () => {
     render(
       <MemoryRouter>
-        <Video movies={movies} />
+        <MediaSection movies={movies} />
       </MemoryRouter>
     );
     setTimeout(() => {
@@ -44,7 +44,7 @@ describe("Tests for Video component", () => {
   it("should unmute the video when the mute button is clicked", async () => {
     render(
       <MemoryRouter>
-        <Video movies={movies} />
+        <MediaSection movies={movies} />
       </MemoryRouter>
     );
     setTimeout(async () => {
@@ -59,7 +59,7 @@ describe("Tests for Video component", () => {
   it("should mute the video when the mute button is clicked", async () => {
     render(
       <MemoryRouter>
-        <Video movies={movies} />
+        <MediaSection movies={movies} />
       </MemoryRouter>
     );
     setTimeout(async () => {
