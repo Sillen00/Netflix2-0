@@ -9,11 +9,7 @@ interface Props {
 
 function MovieView({ movie }: Props) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = event.currentTarget;
-    if (target.getAttribute("data-tried-loading") !== "true") {
-      target.setAttribute("data-tried-loading", "true");
-      target.src = errorImg;
-    }
+    event.currentTarget.src = errorImg;
   };
   const { title, thumbnail, genre, synopsis, year, rating, actors } = movie;
 
