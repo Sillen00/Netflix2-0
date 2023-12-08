@@ -18,7 +18,15 @@ a {
 
 .App {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+main {
+  flex-grow: 1;
+}
+
 body {
   background: linear-gradient(270deg, #330653, #000328);
   background-size: 400% 400%;
