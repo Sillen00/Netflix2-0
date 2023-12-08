@@ -31,7 +31,7 @@ function Header() {
           </StyledNavLink>
         </Group>
       </StyledHeader>
-      {searchInput && <DisplayResults searchInput={searchInput} />}
+      {searchInput && <DisplayResults searchInput={searchInput} setSearchOpen={setSearchOpen} />}
     </>
   );
 }
