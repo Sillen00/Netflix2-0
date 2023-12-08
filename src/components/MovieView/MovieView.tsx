@@ -1,4 +1,5 @@
 import { Box, Text, Title } from "@mantine/core";
+import errorImg from "../../../public/404.png";
 import { Movie } from "../../contexts/MovieContext";
 import { StyledMovieView } from "./MovieView.style";
 
@@ -7,11 +8,18 @@ interface Props {
 }
 
 function MovieView({ movie }: Props) {
+  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = event.currentTarget;
+    if (target.getAttribute("data-tried-loading") !== "true") {
+      target.setAttribute("data-tried-loading", "true");
+      target.src = errorImg;
+    }
+  };
   const { title, thumbnail, genre, synopsis, year, rating, actors } = movie;
 
   return (
     <StyledMovieView>
-      <img src={thumbnail} alt={title}></img>
+      <img src={thumbnail} alt={title} onError={handleImageError}></img>
       <Box className='text'>
         <Box className='top'>
           <Box>
