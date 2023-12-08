@@ -21,8 +21,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index element={<StartPage />} />
-      <Route path='BookMarkedPage' element={<BookMarkedPage />} />
-      <Route path='CategoryPage' element={<CategoryPage />} />
+      <Route path='bookmarks' element={<BookMarkedPage />} />
+      <Route path='categories' element={<CategoryPage />} />
       <Route path='movie/:slug' element={<MovieViewPage />} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
