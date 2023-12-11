@@ -17,6 +17,6 @@ export const StyledCategoryButton = styled.div`
   }
 
   .mantine-Button-root:focus {
-    font-weight: 700;
+    font-weight: bold;
   }
 `;

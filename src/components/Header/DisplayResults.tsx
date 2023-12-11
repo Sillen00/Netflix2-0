@@ -1,8 +1,6 @@
 import { SimpleGrid, Text } from "@mantine/core";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 import movies from "../../../data/movies.json";
-import { titleToSlug } from "../../pages/MovieViewPage";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledSearchResultDisplayContainer } from "./Header.style";
 
@@ -21,14 +19,9 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
       {filteredMovies.length > 0 ? (
         <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
           {filteredMovies.map((movie, index) => (
-            <Link key={index} to={`/movie/${titleToSlug(movie.title)}`}>
-              <MovieCard
-                thumbnail={movie.thumbnail}
-                year={movie.year}
-                rating={movie.rating}
-                title={movie.title}
-              />
-            </Link>
+            <div key={index}>
+              <MovieCard {...movie} />
+            </div>
           ))}
         </SimpleGrid>
       ) : (
