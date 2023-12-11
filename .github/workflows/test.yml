@@ -1,0 +1,69 @@
+name: Linting, prettier and Testing
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: "0 */6 * * *" # Runs every 6 hours, adjust as needed
+
+jobs:
+  check-branch-up-to-date-with-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures the entire history is fetched
+
+      - name: Check if PR branch is up-to-date with main
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin main:${{ github.base_ref }}
+          LOCAL_MAIN=$(git rev-parse ${GITHUB_BASE_REF})
+          REMOTE_MAIN=$(git rev-parse origin/${{ github.base_ref }})
+
+          if [ "$LOCAL_MAIN" != "$REMOTE_MAIN" ]; then
+              echo "Error: The PR branch is not up-to-date with the main branch."
+              exit 1
+          else
+              echo "The PR branch is up-to-date with the main branch."
+          fi
+
+      - name: Check open PRs if scheduled
+        if: github.event_name == 'schedule'
+        run: |
+          # Script to iterate over open PRs and check if they are up-to-date with main
+          # This part needs to be filled with a script using GitHub CLI or API
+
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: NPM Install
+        run: npm ci
+      - name: Run linting
+        run: npm run lint
+      - name: Run prettier
+        run: npm run prettierW
+
+  testing:
+    runs-on: ubuntu-latest
+    needs: linting
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: NPM Install
+        run: npm ci
+      - name: Run tests
+        run: npm test
