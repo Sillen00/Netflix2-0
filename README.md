@@ -17,7 +17,7 @@ To get started with this project, you can follow these steps:
 
 ## Testing
 
-We have created tests for every component in the project to ensure its functionality and maintainability. To run the tests, you can use the following command:
+We have created tests for many of the react components in the project to ensure its functionality and maintainability. To run the tests, you can use the following command:
 
 1. Run all tests `npm test`
 
