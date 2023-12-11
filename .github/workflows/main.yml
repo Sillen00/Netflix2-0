@@ -8,7 +8,7 @@ on: #this workflow runs on pull requests and pushes to main or master
 
 #this is a list of all jobs
 jobs:
-  check-main-merged-in-pr:
+  check-pr-is-up-to-date:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -16,21 +16,31 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check if main is merged into PR branch
+      - name: Fetch latest main branch
+        run: git fetch origin main
+
+      - name: Check for only PR changes
         run: |
-          git fetch origin main
+          # Set variables for main and PR commits
           MAIN_COMMIT=$(git rev-parse origin/main)
           PR_COMMIT=$(git rev-parse HEAD)
 
-          if git merge-base --is-ancestor $MAIN_COMMIT $PR_COMMIT; then
-              echo "The PR branch is up-to-date with the main branch."
+          # Create a temporary branch for comparison
+          git checkout -b temp-main $MAIN_COMMIT
+
+          # Merge PR changes into the temporary branch
+          git merge --no-commit --no-ff $PR_COMMIT
+
+          # Check if there are changes other than those in the PR
+          if git diff --exit-code; then
+              echo "PR branch is up-to-date with the main branch and contains only PR changes."
           else
-              echo "Error: The PR branch is not up-to-date with the main branch."
+              echo "Error: The PR branch contains changes not in the main branch or is not up-to-date."
               exit 1
           fi
   linting:
     runs-on: ubuntu-latest
-    needs: check-main-merged-in-pr
+    needs: check-pr-is-up-to-date
     steps:
       - name: Checkout #checks out our current branch so this runner has the latest code
         uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
@@ -49,7 +59,7 @@ jobs:
 
   testing: #name of first job
     runs-on: ubuntu-latest #sets the env which this job runs on
-    needs: [linting, check-main-merged-in-pr]
+    needs: [linting, check-pr-is-up-to-date]
     steps: #defines the steps necessary
       - name: Checkout #checks out our current branch so this runner has the latest code
         uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
