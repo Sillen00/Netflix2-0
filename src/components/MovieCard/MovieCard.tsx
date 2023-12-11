@@ -61,7 +61,11 @@ function MovieCard(movie: MovieProps) {
           </Box>
         </Link>
 
-        <Box onClick={handleBookmarkClick} className='bookmark-box' data-testid="bookmark-icon">
+        <Box
+          onClick={handleBookmarkClick}
+          className='bookmark-box'
+          data-testid={`bookmark-${movie.title}`}
+        >
           {/* If movie is bookmarked, show a text with text "OO" else show FaRegBookmark icon. */}
           {bookmarkedMovies.some(m => m.title === movie.title) ? (
             <FaBookmark size={"30px"} />
