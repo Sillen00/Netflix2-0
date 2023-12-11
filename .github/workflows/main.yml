@@ -26,17 +26,14 @@ jobs:
           LATEST_PR_COMMIT=$(git rev-parse HEAD)
 
           if [ "$LATEST_MAIN_COMMIT" != "$LATEST_PR_COMMIT" ]; then
-              echo "::set-output name=is_up_to_date::false"
               echo "Error: The PR branch is not up-to-date with the latest commit in the main branch."
               exit 1
           else
-              echo "::set-output name=is_up_to_date::true"
               echo "The PR branch is up-to-date with the latest commit in the main branch."
           fi
   linting:
     runs-on: ubuntu-latest
     needs: check-main-latest-commit
-    if: ${{ needs.check-main-latest-commit.outputs.is_up_to_date == 'true' }}
     steps:
       - name: Checkout #checks out our current branch so this runner has the latest code
         uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
@@ -56,7 +53,6 @@ jobs:
   testing: #name of first job
     runs-on: ubuntu-latest #sets the env which this job runs on
     needs: [linting, check-main-latest-commit]
-    if: ${{ needs.check-main-latest-commit.outputs.is_up_to_date == 'true' }}
     steps: #defines the steps necessary
       - name: Checkout #checks out our current branch so this runner has the latest code
         uses: actions/checkout@v4 #uses means that it is a pre-defined action supplied by GitHub.
