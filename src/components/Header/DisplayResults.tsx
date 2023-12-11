@@ -22,12 +22,7 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
         <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
           {filteredMovies.map((movie, index) => (
             <Link key={index} to={`/movie/${titleToSlug(movie.title)}`}>
-              <MovieCard
-                thumbnail={movie.thumbnail}
-                year={movie.year}
-                rating={movie.rating}
-                title={movie.title}
-              />
+              <MovieCard {...movie} />
             </Link>
           ))}
         </SimpleGrid>
