@@ -8,6 +8,22 @@ on: #this workflow runs on pull requests and pushes to main or master
 
 #this is a list of all jobs
 jobs:
+  check-main-merge-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if up-to-date with main branch
+        run: |
+          git fetch origin main:main
+          DIFF=$(git diff --name-only HEAD main)
+          if [ "$DIFF" ]; then
+              echo "Error: Branch is not up-to-date with main. Please merge the latest main into your branch."
+              exit 1
+              fi
   linting:
     runs-on: ubuntu-latest
     steps:
