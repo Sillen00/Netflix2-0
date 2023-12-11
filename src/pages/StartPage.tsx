@@ -4,17 +4,21 @@ import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
 import { Movie, MovieContext } from "../contexts/MovieContext";
 
 function StartPage() {
-  const [trending, setTrending] = useState<Movie[]>([]);
   const [recommended, setRecommended] = useState<Movie[]>([]);
+  const [trending, setTrending] = useState<Movie[]>([]);
+
   const { movies } = useContext(MovieContext);
 
   useEffect(() => {
-    const numOfTrending = 10;
+    const numOfTrending = 7;
     const numOfRecommended = 12;
 
-    const shuffledMovies = [...movies].sort(() => 0.5 - Math.random());
-    setTrending(shuffledMovies.slice(0, numOfTrending));
-    setRecommended(shuffledMovies.slice(numOfTrending, numOfTrending + numOfRecommended));
+    const trendingMovies = movies.filter(movie => movie.isTrending);
+    setTrending(trendingMovies.slice(0, numOfTrending));
+
+    const nonTrendingMovies = movies.filter(movie => !movie.isTrending);
+    const shuffledNonTrendingMovies = [...nonTrendingMovies].sort(() => 0.5 - Math.random());
+    setRecommended(shuffledNonTrendingMovies.slice(0, numOfRecommended));
   }, [movies]);
 
   return (
