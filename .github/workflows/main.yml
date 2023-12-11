@@ -8,22 +8,26 @@ on: #this workflow runs on pull requests and pushes to main or master
 
 #this is a list of all jobs
 jobs:
-  check-main-merge-status:
+  check-branch-up-to-date:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Ensures the entire history is fetched
 
-      - name: Check if up-to-date with main branch
+      - name: Check if local branch is up-to-date with remote
         run: |
-          git fetch origin main:main
-          DIFF=$(git diff --name-only HEAD main)
-          if [ "$DIFF" ]; then
-              echo "Error: Branch is not up-to-date with main. Please merge the latest main into your branch."
+          git fetch origin
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/${{ github.head_ref }})
+
+          if [ "$LOCAL" != "$REMOTE" ]; then
+              echo "Error: Local branch is not up-to-date with the remote branch."
               exit 1
-              fi
+          else
+              echo "Branch is up-to-date with the remote branch."
+          fi
   linting:
     runs-on: ubuntu-latest
     steps:
