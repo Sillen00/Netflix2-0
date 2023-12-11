@@ -26,6 +26,7 @@ export const StyledMovieCarousel = styled.div`
   .mantine-Carousel-control {
     box-shadow: none;
     color: #fff;
+    transform: translateY(-74px);
 
     svg {
       height: 2rem;
