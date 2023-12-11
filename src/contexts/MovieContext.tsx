@@ -1,3 +1,4 @@
+import { useSessionStorage } from "@mantine/hooks";
 import { createContext, useEffect, useState } from "react";
 import data from "../../data/movies.json";
 
@@ -30,10 +31,12 @@ export const MovieContext = createContext<MovieContextValue>({
 
 export default function SearchProvider({ children }: Props) {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useSessionStorage<Movie[]>({
+    key: "bookmarked",
+    defaultValue: [],
+  });
   useEffect(() => {
     setMovies(data);
-    setBookmarkedMovies([]);
   }, []);
 
   return (
