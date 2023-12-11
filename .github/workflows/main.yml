@@ -8,7 +8,7 @@ on: #this workflow runs on pull requests and pushes to main or master
 
 #this is a list of all jobs
 jobs:
-  check-branch-up-to-date:
+  check-branch-up-to-date-with-main:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -16,17 +16,17 @@ jobs:
         with:
           fetch-depth: 0 # Ensures the entire history is fetched
 
-      - name: Check if local branch is up-to-date with remote
+      - name: Check if PR branch is up-to-date with main
         run: |
-          git fetch origin
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/${{ github.head_ref }})
+          git fetch origin main:${{ github.base_ref }}
+          LOCAL_MAIN=$(git rev-parse ${GITHUB_BASE_REF})
+          REMOTE_MAIN=$(git rev-parse origin/${{ github.base_ref }})
 
-          if [ "$LOCAL" != "$REMOTE" ]; then
-              echo "Error: Local branch is not up-to-date with the remote branch."
+          if [ "$LOCAL_MAIN" != "$REMOTE_MAIN" ]; then
+              echo "Error: The PR branch is not up-to-date with the main branch."
               exit 1
           else
-              echo "Branch is up-to-date with the remote branch."
+              echo "The PR branch is up-to-date with the main branch."
           fi
   linting:
     runs-on: ubuntu-latest
