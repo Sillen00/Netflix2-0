@@ -27,5 +27,6 @@ export const StyledMovieCard = styled.div`
     position: relative;
     left: 4px;
     color: white;
+    cursor: pointer;
   }
 `;
