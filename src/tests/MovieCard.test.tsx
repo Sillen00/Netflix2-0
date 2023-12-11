@@ -1,24 +1,37 @@
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
-import MovieCard, { MovieCardProps } from "../components/MovieCard/MovieCard";
+import MovieCard from "../components/MovieCard/MovieCard";
 import { render, screen, waitFor } from "../utils/test-utils";
 
-interface MovieCardTestProps {
-  thumbnail: string; // Make it non-optional
+interface MovieProps {
+  title: string;
   year: number;
   rating: string;
-  title: string;
+  actors: string[];
+  genre: string;
+  synopsis: string;
+  thumbnail: string;
+  isTrending?: boolean;
 }
 
 describe("MovieCard", () => {
   it("should render the movie title", () => {
-    const movieProps: MovieCardTestProps = {
-      thumbnail: "https://example.com/image.jpg",
+    const movieProps: MovieProps = {
+      title: "Movie Title",
       year: 2022,
       rating: "PG-13",
-      title: "Movie Title",
+      actors: [""],
+      genre: "",
+      synopsis: "",
+      thumbnail: "https://example.com/image.jpg",
+      isTrending: false,
     };
 
-    render(<MovieCard {...movieProps} />);
+    render(
+      <MemoryRouter>
+        <MovieCard {...movieProps} />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText("2022")).toBeInTheDocument();
     expect(screen.getByText("PG-13")).toBeInTheDocument();
@@ -26,14 +39,22 @@ describe("MovieCard", () => {
   });
 
   it("should show a placeholder image if no thumbnail is provided", async () => {
-    const movieProps: MovieCardProps = {
-      thumbnail: "",
+    const movieProps: MovieProps = {
+      title: "Movie Title",
       year: 2022,
       rating: "PG-13",
-      title: "Movie Title",
+      actors: [""],
+      genre: "",
+      synopsis: "",
+      thumbnail: "",
+      isTrending: false,
     };
 
-    render(<MovieCard {...movieProps} />);
+    render(
+      <MemoryRouter>
+        <MovieCard {...movieProps} />
+      </MemoryRouter>
+    );
 
     const image = await screen.findByAltText("Movie Title");
     waitFor(() => {

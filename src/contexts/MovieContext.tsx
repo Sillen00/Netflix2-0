@@ -14,6 +14,8 @@ export interface Movie {
 
 interface MovieContextValue {
   movies: Movie[];
+  bookmarkedMovies: Movie[];
+  setBookmarkedMovies: (bookmarkedMovies: Movie[]) => void;
 }
 
 interface Props {
@@ -22,13 +24,21 @@ interface Props {
 
 export const MovieContext = createContext<MovieContextValue>({
   movies: [],
+  bookmarkedMovies: [],
+  setBookmarkedMovies: () => {},
 });
 
 export default function SearchProvider({ children }: Props) {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>([]);
   useEffect(() => {
     setMovies(data);
+    setBookmarkedMovies([]);
   }, []);
 
-  return <MovieContext.Provider value={{ movies }}>{children}</MovieContext.Provider>;
+  return (
+    <MovieContext.Provider value={{ movies, bookmarkedMovies, setBookmarkedMovies }}>
+      {children}
+    </MovieContext.Provider>
+  );
 }

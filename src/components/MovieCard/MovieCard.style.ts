@@ -6,6 +6,10 @@ export const StyledMovieCard = styled.div`
     width: 100%;
     background-color: black;
   }
+  img {
+    aspect-ratio: 217.35 / 320;
+    object-fit: cover;
+  }
 
   .thumbnail {
     height: auto;
@@ -22,5 +26,6 @@ export const StyledMovieCard = styled.div`
   .bookmark-box {
     position: relative;
     left: 4px;
+    color: white;
   }
 `;

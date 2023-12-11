@@ -52,9 +52,7 @@ export const StyledMovieView = styled.div`
   }
 
   .bookmark {
-    background-color: #fff;
-    width: 35px;
-    height: 45px;
+    color: white;
   }
 
   .text {

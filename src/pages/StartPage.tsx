@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import MediaSection from "../components/MediaSection/MediaSection";
 import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
 import { Movie, MovieContext } from "../contexts/MovieContext";
 
@@ -18,6 +19,7 @@ function StartPage() {
 
   return (
     <div>
+      <MediaSection movies={movies} />
       <MovieCarousel movies={trending} heading={"Trending"} />
       <MovieCarousel movies={recommended} heading={"Recommended for you"} />
     </div>

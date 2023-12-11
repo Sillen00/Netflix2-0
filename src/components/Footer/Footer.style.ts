@@ -26,7 +26,6 @@ export const StyledFooter = styled.footer`
   }
 
   .logo p {
-    
     font-size: clamp(1.2rem, 2vw, 1.8rem);
     color: white;
     font-weight: 700;
