@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import Header from "../components/Header/Header";
@@ -18,5 +19,17 @@ describe("Header", () => {
     expect(categoriesLink).toBeInTheDocument();
     expect(bookmarksLink).toBeInTheDocument();
     expect(searchInput).toBeInTheDocument();
+  });
+  it("should be able to search for a movie", async () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+    const user = userEvent.setup();
+    await userEvent.click(screen.getByRole("button", { name: "search button" }));
+    const input = screen.getByRole("textbox");
+    await user.type(input, "Inception");
+    expect(screen.getByText("2010")).toBeInTheDocument();
   });
 });

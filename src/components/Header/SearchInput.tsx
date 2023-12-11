@@ -66,7 +66,7 @@ function SearchInput({
       onChange={e => setSearchInput(e.currentTarget.value)}
       leftSectionPointerEvents={isSearchOpen ? "none" : "all"}
       leftSection={
-        <ActionIcon className='search-action-icon' variant='transparent' onClick={toggleSearch}>
+        <ActionIcon className='search-action-icon' variant='transparent' aria-label="search button" onClick={toggleSearch}>
           <IoSearchOutline color='white' size='1.5rem' />
         </ActionIcon>
       }
