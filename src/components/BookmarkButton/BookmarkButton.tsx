@@ -40,13 +40,13 @@ function BookmarkButton(movie: Movie) {
   };
 
   return (
-    <Tooltip label={tooltipText} position='bottom' offset={-25} opened={opened}>
+    <Tooltip label={tooltipText} position='bottom' opened={opened}>
       <StyledBookmarkButton onClick={handleBookmarkClick} data-testid={`bookmark-${movie.title}`}>
         {/* If movie is bookmarked, show solid icon, else show outlined icon. */}
         {bookmarkedMovies.some(m => m.title === movie.title) ? (
-          <FaBookmark size={"30px"} />
+          <FaBookmark className='bookmark-icon' />
         ) : (
-          <FaRegBookmark size={"30px"} />
+          <FaRegBookmark className='bookmark-icon' />
         )}
       </StyledBookmarkButton>
     </Tooltip>

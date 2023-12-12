@@ -15,23 +15,21 @@ function MovieCard(movie: Movie) {
     <StyledMovieCard data-testid={`id-${movie.title}`}>
       <Link to={`/movie/${titleToSlug(movie.title)}`}>
         <Box className='thumbnail-box'>
-          <Image
-            className='thumbnail'
-            src={movie.thumbnail}
-            onError={handleImageError}
-            alt={movie.title}
-          />
+          <Image src={movie.thumbnail} onError={handleImageError} alt={movie.title} />
+          <BookmarkButton {...movie} />
         </Box>
       </Link>
       <Box className='movie-card-bottom'>
-        <Link to={`/movie/${titleToSlug(movie.title)}`}>
-          <Box className='movie-card-text'>
-            <Text>{movie.title}</Text>
+        <Box className='movie-card-text'>
+          <Link to={`/movie/${titleToSlug(movie.title)}`}>
+            <Text className='title'>{movie.title}</Text>{" "}
+          </Link>
+
+          <Box className='meta'>
             <Text>{movie.year}</Text>
             <Text>{movie.rating}</Text>
           </Box>
-        </Link>
-        <BookmarkButton {...movie} />
+        </Box>
       </Box>
     </StyledMovieCard>
   );

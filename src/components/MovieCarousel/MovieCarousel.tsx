@@ -15,7 +15,7 @@ function MovieCarousel({ heading, movies }: MovieCarouselProps) {
     <StyledMovieCarousel aria-label='Movie carousel'>
       <Title order={2}>{heading}</Title>
       <Carousel
-        slideSize={{ base: "60%", sm: "30%", md: "20%" }}
+        slideSize={{ base: "60%", sm: "30%", md: "18%" }}
         align='start'
         slideGap='lg'
         controlsOffset='xs'

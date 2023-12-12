@@ -18,15 +18,9 @@ function MovieView(movie: Movie) {
       <Image src={imageSrc} onError={handleImageError} alt={title} />
       <Box className='text'>
         <Box className='top'>
-          <Box>
-            <Title order={4}>
-              <b>Year: </b>
-              {year}
-            </Title>
-            <Title order={4}>
-              <b>Rating: </b>
-              {rating}
-            </Title>
+          <Box className='meta'>
+            <Title order={4}>{year}</Title>
+            <Title order={4}>{rating}</Title>
           </Box>
           <BookmarkButton {...movie} />
         </Box>
