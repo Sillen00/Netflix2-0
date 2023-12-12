@@ -26,7 +26,7 @@ function MovieCarousel({ heading, movies }: Prop) {
       >
         {movies.map((movie, index) => (
           <Carousel.Slide key={index}>
-            <MovieCard {...movie} data-testid={heading} />
+            <MovieCard {...movie} />
           </Carousel.Slide>
         ))}
         ;
