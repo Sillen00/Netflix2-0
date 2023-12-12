@@ -1,10 +1,11 @@
+import { Box } from "@mantine/core";
 import CategoryMovieList from "../components/CategoryMovieList/CategoryMovieList";
 
 function CategoryPage() {
   return (
-    <div>
+    <Box>
       <CategoryMovieList />
-    </div>
+    </Box>
   );
 }
 

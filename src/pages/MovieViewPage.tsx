@@ -1,3 +1,4 @@
+import { Box } from "@mantine/core";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import MovieView from "../components/MovieView/MovieView";
@@ -18,14 +19,14 @@ function MovieViewPage() {
   const movie = slug ? movies.find(m => titleToSlug(m.title) === slug) : null;
 
   if (!movie) {
-    // Om filmen inte finns, rendera en fallback
+    // If no movie is found, show the NotFoundPage component
     return <NotFoundPage movieViewPage />;
   }
 
   return (
-    <div>
+    <Box>
       <MovieView {...movie} />
-    </div>
+    </Box>
   );
 }
 

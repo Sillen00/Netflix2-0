@@ -6,7 +6,9 @@ interface NotFoundPageProps {
 }
 
 function NotFoundPage({ movieViewPage }: NotFoundPageProps) {
+  // Location used to get the current path
   const location = useLocation();
+  // Format the path to remove the first slash and the word "movie" if it's a movie view page
   const formattedPath = `"${
     movieViewPage ? location.pathname.slice(7) : location.pathname.slice(1)
   }"`;

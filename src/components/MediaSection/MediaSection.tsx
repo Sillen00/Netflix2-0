@@ -14,9 +14,7 @@ interface MediaSectionProps {
 function MediaSection({ movies }: MediaSectionProps) {
   //Ref for accessing the video element
   const videoRef = useRef<HTMLVideoElement>(null);
-  // State to show poster image or not
   const [showPoster, setShowPoster] = useState(true);
-  // State to mute or unmute video
   const [isMuted, setIsMuted] = useState(true);
 
   // Finds the movie Inception from the movies array and sets it to a variable

@@ -50,7 +50,7 @@ export const StyledFooter = styled.footer`
     font-weight: 500;
     white-space: nowrap;
     color: white;
-    line-height: 0.8;
+    line-height: 1;
     @media (max-width: ${breakpoints.md}) {
       font-size: 3.25rem;
       padding-top: 0.2rem;

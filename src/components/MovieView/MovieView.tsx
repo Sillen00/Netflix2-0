@@ -8,9 +8,11 @@ import { StyledMovieView } from "./MovieView.style";
 function MovieView(movie: Movie) {
   const [imageSrc, setImageSrc] = useState(movie.thumbnail);
 
+  // If the movie image fails to load, replace it with the placeholder image
   const handleImageError = () => {
     setImageSrc("../404.png");
   };
+  // Destructure the movie object
   const { title, genre, synopsis, year, rating, actors } = movie;
 
   return (

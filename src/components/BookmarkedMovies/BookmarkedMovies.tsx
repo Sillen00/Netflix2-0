@@ -9,8 +9,7 @@ function BookmarkedMovies() {
 
   return (
     <StyleBookmarkedMovie>
-      {/* Check the length of the state with the bookmarked movies */}
-      {/* If no movie is bookmarked, show text otherwise render the movie cards */}
+      {/* If no movies are bookmarked, show a message */}
       {bookmarkedMovies.length === 0 && (
         <Text className='empty-bookmark-message'>You dont have any movies bookmarked.</Text>
       )}
