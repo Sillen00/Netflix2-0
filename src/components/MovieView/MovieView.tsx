@@ -1,15 +1,11 @@
-import { useContext } from "react";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { Movie, MovieContext } from "../../contexts/MovieContext";
 import { Box, Image, Text, Title } from "@mantine/core";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { MovieContext } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import { StyledMovieView } from "./MovieView.style";
 
-interface Props {
-  movie: Movie;
-}
-
-function MovieView({ movie }: Props) {
+function MovieView(movie: Movie) {
   const [imageSrc, setImageSrc] = useState(movie.thumbnail);
 
   const handleImageError = () => {

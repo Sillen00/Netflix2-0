@@ -4,20 +4,10 @@ import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../../contexts/MovieContext";
 import { titleToSlug } from "../../pages/MovieViewPage";
+import { Movie } from "../../utils/dataTypes";
 import { StyledMovieCard } from "./MovieCard.style";
 
-export interface MovieProps {
-  title: string;
-  year: number;
-  rating: string;
-  actors: string[];
-  genre: string;
-  synopsis: string;
-  thumbnail: string;
-  isTrending?: boolean;
-}
-
-function MovieCard(movie: MovieProps) {
+function MovieCard(movie: Movie) {
   const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
   const [opened, setOpened] = useState(false);
   const [tooltipText, setTooltipText] = useState("");

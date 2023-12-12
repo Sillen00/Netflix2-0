@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { Input, InputProps, Title } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-
 import breakpoints from "../../utils/breakpoints";
 
 // Header styles:

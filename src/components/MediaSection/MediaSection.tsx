@@ -4,14 +4,14 @@ import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Inception from "../../assets/Inception.mp4";
 import InceptionPoster from "../../assets/InceptionPoster.jpeg";
-import { Movie } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import { StyledVideoContainer } from "./MediaSection.style";
 
-interface Prop {
+interface VideoProps {
   movies: Movie[];
 }
 
-function Video({ movies }: Prop) {
+function Video({ movies }: VideoProps) {
   // Ref för att komma åt video-elementet
   const videoRef = useRef<HTMLVideoElement>(null);
   // State för att visa poster-bild eller video

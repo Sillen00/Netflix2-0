@@ -16,7 +16,7 @@ function MovieViewPage() {
 
   const movie = slug ? movies.find(m => titleToSlug(m.title) === slug) : undefined;
 
-  return <div>{movie && <MovieView movie={movie} />} </div>;
+  return <div>{movie && <MovieView {...movie} />} </div>;
 }
 
 export default MovieViewPage;
