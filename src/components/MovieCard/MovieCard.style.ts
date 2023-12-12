@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const StyledMovieCard = styled.div`
   .thumbnail-box {
+    position: relative;
     background-color: black;
     img {
       aspect-ratio: 217.35 / 320;
@@ -30,7 +31,12 @@ export const StyledMovieCard = styled.div`
   }
 
   .title {
-    font-weight: 900;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .movie-card-bottom {

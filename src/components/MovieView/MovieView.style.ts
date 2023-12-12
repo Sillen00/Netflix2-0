@@ -63,10 +63,15 @@ export const StyledMovieView = styled.div`
   }
 
   .top {
+    position: relative;
     display: flex;
     align-self: flex-start;
     justify-content: space-between;
     width: 100%;
+
+    > button {
+      top: 0;
+    }
   }
 
   .bookmark {

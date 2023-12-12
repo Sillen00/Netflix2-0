@@ -1,15 +1,26 @@
 import styled from "@emotion/styled";
+import breakpoints from "../../utils/breakpoints";
 
 export const StyledBookmarkButton = styled.button`
   background: none;
   border: none;
-  position: relative;
-  left: 4px;
+  position: absolute;
+  z-index: 100;
   color: white;
   cursor: pointer;
   color: #a26a10;
-  height: fit-content;
-  padding: 0.1rem;
-  top: -3.45rem;
-  left: -0.45rem;
+  right: 4px;
+  bottom: 8px;
+  height: 30px;
+
+  .bookmark-icon {
+    width: auto;
+    height: 30px;
+    @media (max-width: ${breakpoints.xs}) {
+      height: 25px;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `;
