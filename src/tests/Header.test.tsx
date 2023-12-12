@@ -5,6 +5,20 @@ import Header from "../components/Header/Header";
 import { render, screen } from "../utils/test-utils";
 
 describe("Header", () => {
+  it("should render the search results", async () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const searchInput = screen.getByPlaceholderText("Search...");
+    await userEvent.type(searchInput, "The Matrix");
+
+    const image = await screen.findByAltText("The Matrix");
+    expect(image).toBeInTheDocument();
+  });
+
   it("should render header and each of it's elements correctly", () => {
     render(
       <MemoryRouter>
