@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Title, UnstyledButton } from "@mantine/core";
+import { AspectRatio, Box, Image, Title, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -12,17 +12,17 @@ interface MediaSectionProps {
 }
 
 function MediaSection({ movies }: MediaSectionProps) {
-  // Ref för att komma åt video-elementet
+  //Ref for accessing the video element
   const videoRef = useRef<HTMLVideoElement>(null);
-  // State för att visa poster-bild eller video
+  // State to show poster image or not
   const [showPoster, setShowPoster] = useState(true);
-  // State för att visa unMute eller mute ikon
+  // State to mute or unmute video
   const [isMuted, setIsMuted] = useState(true);
 
-  // Hämta Inception-filmen från movies-arrayen
+  // Finds the movie Inception from the movies array and sets it to a variable
   const movie = movies.find(movie => movie.title === "Inception");
 
-  // Funktion för att mutea och unMutea videon
+  // Funktion for mute/unmute video
   const handleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
@@ -30,7 +30,7 @@ function MediaSection({ movies }: MediaSectionProps) {
     }
   };
 
-  // När komponenten mountas, starta en timer som efter 3 sekunder stänger av poster-bilden och startar videon
+  // Starts a timer when the component mounts. After 3 seconds, the poster image is hidden and the video starts playing.
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPoster(false);
@@ -38,7 +38,7 @@ function MediaSection({ movies }: MediaSectionProps) {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []); // Tom array för att useEffect bara ska köras en gång
+  }, []); // Empty array to only run once
 
   return (
     <StyledVideoContainer>
@@ -62,8 +62,9 @@ function MediaSection({ movies }: MediaSectionProps) {
         </Box>
         <AspectRatio ratio={16 / 9} className='aspect-ratio-media'>
           {showPoster ? (
-            <img src={InceptionPoster} alt='Inception poster' />
+            <Image src={InceptionPoster} alt='Inception poster' />
           ) : (
+            // When the video ends, the poster image is shown again
             <video ref={videoRef} autoPlay muted onEnded={() => setShowPoster(true)}>
               <source src={Inception} type='video/mp4' />
             </video>

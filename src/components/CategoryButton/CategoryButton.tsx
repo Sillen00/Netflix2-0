@@ -12,15 +12,19 @@ function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
   const { movies } = useContext(MovieContext);
   const isSmallScreen = useMediaQuery("(max-width: 1240px)");
 
+  // Get all the genres from the movies array. Split the string into an array and flatten it.
+  // Then get the unique values from the array.
   const allGenres = movies.flatMap(movie => movie.genre.split(", "));
   const uniqueGenres = [...new Set(allGenres)];
 
+  // Click sets the selected genre
   const handleGenreClick = (genre: string) => {
     setSelectedGenre(genre);
   };
 
   return (
     <StyledCategoryButton>
+      {/* If the screen is small, show the select component, otherwise show the buttons */}
       {isSmallScreen ? (
         <Select
           data-testid='select-component'
