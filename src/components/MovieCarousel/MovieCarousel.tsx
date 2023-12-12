@@ -1,16 +1,16 @@
 import { Carousel } from "@mantine/carousel";
 import { Title, rem } from "@mantine/core";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Movie } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import MovieCard from "../MovieCard/MovieCard";
 import { StyledMovieCarousel } from "./MovieCarousel.style";
 
-interface Prop {
+interface MovieCarouselProps {
   heading: string;
   movies: Movie[];
 }
 
-function MovieCarousel({ heading, movies }: Prop) {
+function MovieCarousel({ heading, movies }: MovieCarouselProps) {
   return (
     <StyledMovieCarousel aria-label='Movie carousel'>
       <Title order={2}>{heading}</Title>

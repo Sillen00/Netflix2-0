@@ -1,7 +1,8 @@
 import { Tooltip } from "@mantine/core";
 import { useContext, useRef, useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { Movie, MovieContext } from "../../contexts/MovieContext";
+import { MovieContext } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import { StyledBookmarkButton } from "./BookMarkButton.style";
 
 function BookmarkButton(movie: Movie) {

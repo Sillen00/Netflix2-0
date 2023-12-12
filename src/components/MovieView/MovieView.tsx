@@ -1,14 +1,11 @@
 import { Box, Image, Text, Title } from "@mantine/core";
+
 import { useState } from "react";
-import { Movie } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import { StyledMovieView } from "./MovieView.style";
 
-interface Props {
-  movie: Movie;
-}
-
-function MovieView({ movie }: Props) {
+function MovieView(movie: Movie) {
   const [imageSrc, setImageSrc] = useState(movie.thumbnail);
 
   const handleImageError = () => {
