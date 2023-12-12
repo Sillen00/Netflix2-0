@@ -14,9 +14,18 @@ function MovieViewPage() {
   const { movies } = useContext(MovieContext);
   const { slug } = useParams<{ slug: string }>(); // Get the title from URL
 
-  const movie = slug ? movies.find(m => titleToSlug(m.title) === slug) : undefined;
+  const movie = slug ? movies.find(m => titleToSlug(m.title) === slug) : null;
 
-  return <div>{movie && <MovieView {...movie} />} </div>;
+  if (!movie) {
+    // Om filmen inte finns, rendera en fallback
+    return <div>Movie not found</div>;
+  }
+
+  return (
+    <div>
+      <MovieView {...movie} />
+    </div>
+  );
 }
 
 export default MovieViewPage;
