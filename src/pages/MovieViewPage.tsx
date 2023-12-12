@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import MovieView from "../components/MovieView/MovieView";
 import { MovieContext } from "../contexts/MovieContext";
+import NotFoundPage from "./NotFoundPage";
 
 export const titleToSlug = (title: string) => {
   return title
@@ -12,13 +13,13 @@ export const titleToSlug = (title: string) => {
 
 function MovieViewPage() {
   const { movies } = useContext(MovieContext);
-  const { slug } = useParams<{ slug: string }>(); // Get the title from URL
+  const { slug } = useParams<{ slug: string }>();
 
   const movie = slug ? movies.find(m => titleToSlug(m.title) === slug) : null;
 
   if (!movie) {
     // Om filmen inte finns, rendera en fallback
-    return <div>Movie not found</div>;
+    return <NotFoundPage movieViewPage />;
   }
 
   return (
