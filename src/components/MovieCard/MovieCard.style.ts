@@ -22,11 +22,4 @@ export const StyledMovieCard = styled.div`
     margin-top: 10px;
     gap: 0.3rem;
   }
-
-  .bookmark-box {
-    position: relative;
-    left: 4px;
-    color: white;
-    cursor: pointer;
-  }
 `;

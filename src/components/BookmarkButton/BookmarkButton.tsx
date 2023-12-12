@@ -1,7 +1,8 @@
-import { Box, Tooltip } from "@mantine/core";
+import { Tooltip } from "@mantine/core";
 import { useContext, useRef, useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { Movie, MovieContext } from "../../contexts/MovieContext";
+import { StyledBookmarkButton } from "./BookMarkButton.style";
 
 function BookmarkButton(movie: Movie) {
   const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
@@ -9,7 +10,7 @@ function BookmarkButton(movie: Movie) {
   const [tooltipText, setTooltipText] = useState("");
   const tooltipTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const handleBookmarkClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
+  const handleBookmarkClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // Check if the movie is already bookmarked
     const isBookmarked = bookmarkedMovies.some(m => m.title === movie.title);
@@ -26,7 +27,7 @@ function BookmarkButton(movie: Movie) {
     }
     tooltipTimer.current = setTimeout(() => {
       setOpened(false);
-    }, 1500);
+    }, 1200);
 
     // If it's bookmarked, remove it; otherwise, add it
     const updatedBookmarkedMovies = isBookmarked
@@ -39,18 +40,14 @@ function BookmarkButton(movie: Movie) {
 
   return (
     <Tooltip label={tooltipText} position='bottom' offset={-25} opened={opened}>
-      <Box
-        onClick={handleBookmarkClick}
-        className='bookmark-box'
-        data-testid={`bookmark-${movie.title}`}
-      >
-        {/* If movie is bookmarked, show a text with text "OO" else show FaRegBookmark icon. */}
+      <StyledBookmarkButton onClick={handleBookmarkClick} data-testid={`bookmark-${movie.title}`}>
+        {/* If movie is bookmarked, show solid icon, else show outlined icon. */}
         {bookmarkedMovies.some(m => m.title === movie.title) ? (
           <FaBookmark size={"30px"} />
         ) : (
           <FaRegBookmark size={"30px"} />
         )}
-      </Box>
+      </StyledBookmarkButton>
     </Tooltip>
   );
 }
