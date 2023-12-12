@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 export const StyledMovieView = styled.div`
   display: flex;
   gap: 4rem;
-  padding: 4rem 6rem;
-  align-items: flex-start;
+  padding: 2rem 6rem;
+  align-items: center;
 
   img {
     width: 25vw;
@@ -29,11 +29,30 @@ export const StyledMovieView = styled.div`
   }
 
   p {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   }
 
   span {
     font-size: 1.2rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.25rem;
+
+    h4:last-of-type {
+      background-color: #333;
+      padding: 0 0.375rem;
+      font-size: 0.85rem;
+      border-radius: 0.125rem;
+      padding: 0 6px;
+      color: #fff;
+    }
+  }
+  .title {
+    font-weight: bold;
   }
 
   > div {
@@ -44,7 +63,6 @@ export const StyledMovieView = styled.div`
   }
 
   .top {
-    line-height: 1;
     display: flex;
     align-self: flex-start;
     justify-content: space-between;
@@ -69,7 +87,6 @@ export const StyledMovieView = styled.div`
   @media (max-width: 1000px) {
     padding: 2rem;
     gap: 4rem;
-
     flex-direction: column;
     align-items: center;
 
