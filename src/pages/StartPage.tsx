@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import MediaSection from "../components/MediaSection/MediaSection";
 import MovieCarousel from "../components/MovieCarousel/MovieCarousel";
-import { Movie, MovieContext } from "../contexts/MovieContext";
+import { MovieContext } from "../contexts/MovieContext";
+import { Movie } from "../utils/dataTypes";
 
 function StartPage() {
   const [recommended, setRecommended] = useState<Movie[]>([]);
