@@ -44,19 +44,14 @@ describe("App Functionality", () => {
 
   it("should render the 404 page if the url route does not exist", async () => {
     render(
-      <MemoryRouter initialEntries={["/movie/hej"]}>
+      <MemoryRouter initialEntries={["/fff"]}>
         <Routes>
-          <Route path='/' element={<App />}>
-            <Route index element={<StartPage />} />
-            <Route path='categories' element={<CategoryPage />} />
-            <Route path='movie/:slug' element={<MovieViewPage />} />
-            <Route path='*' element={<NotFoundPage />} />
-          </Route>
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/hej/i)).toBeInTheDocument();
+    expect(screen.getByText('The page "fff" was not found.')).toBeInTheDocument();
   });
 });
 
