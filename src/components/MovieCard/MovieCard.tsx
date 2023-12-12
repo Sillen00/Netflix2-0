@@ -1,7 +1,7 @@
 import { Box, Image, Text } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { Movie } from "../../contexts/MovieContext";
 import { titleToSlug } from "../../pages/MovieViewPage";
+import { Movie } from "../../utils/dataTypes";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import { StyledMovieCard } from "./MovieCard.style";
 
