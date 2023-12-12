@@ -1,7 +1,7 @@
 import { Box, Image, Text, Title } from "@mantine/core";
 import { useState } from "react";
 import { Movie } from "../../contexts/MovieContext";
-import BookmarkButton from "../MovieCard/BookMarkButton";
+import BookmarkButton from "../MovieCard/BookmarkButton";
 import { StyledMovieView } from "./MovieView.style";
 
 interface Props {
