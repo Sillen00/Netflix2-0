@@ -1,52 +1,46 @@
 import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
-  color: white;
-  border-top: 2px solid #f2f2f2;
-  margin-top: 2rem;
+  color: #fff;
+  border-top: 1px solid #f2f2f2;
+  margin-top: 1rem;
   background-color: rgba(0, 0, 0, 0.65);
+  width: 100%;
 
   .footer-container {
     display: flex;
-    justify-content: space-between;
-    align-items: top;
-    padding: 1.5rem 1.5rem 0 1.5rem;
-  }
+    justify-content: flex-start;
+    gap: 3rem;
+    margin: 1rem 0;
 
-  .link-box a {
-    color: white;
-  }
+    .navigation-links-box {
+      display: flex;
+      flex-direction: column;
+      width: 130px;
+      margin-left: 1.5rem;
+    }
 
-  .link-box a:hover {
-    opacity: 0.7;
+    .github-links-box {
+      display: flex;
+      flex-direction: column;
+      width: 130px;
+    }
   }
 
   .logo {
-    text-decoration: none;
-  }
-
-  .logo p {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    color: white;
-    font-weight: 700;
-  }
-
-  .github-links-heading {
-    margin-top: 1.5rem;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
     font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
   }
 
-  .github-links-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-  }
-  .github-links-box a {
-    color: white;
+  a {
+    max-width: 50px;
+    color: #fff;
     text-decoration: none;
+    :hover {
+      opacity: 0.7;
+    }
   }
 `;

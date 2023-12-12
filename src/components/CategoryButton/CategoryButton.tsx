@@ -1,4 +1,4 @@
-import { Button, Select } from "@mantine/core";
+import { Box, Button, Select } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useContext } from "react";
 import { MovieContext } from "../../contexts/MovieContext";
@@ -31,11 +31,11 @@ function CategoryButton({ setSelectedGenre }: CategoryButtonProps) {
         />
       ) : (
         uniqueGenres.map(genre => (
-          <div key={genre}>
+          <Box key={genre}>
             <Button onClick={() => handleGenreClick(genre)} data-testid={`${genre}-button`}>
               {genre}
             </Button>
-          </div>
+          </Box>
         ))
       )}
     </StyledCategoryButton>
