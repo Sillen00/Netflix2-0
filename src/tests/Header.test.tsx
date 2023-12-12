@@ -20,6 +20,7 @@ describe("Header", () => {
     expect(bookmarksLink).toBeInTheDocument();
     expect(searchInput).toBeInTheDocument();
   });
+
   it("should be able to search for a movie", async () => {
     render(
       <MemoryRouter>

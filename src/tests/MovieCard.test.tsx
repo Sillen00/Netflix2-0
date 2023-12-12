@@ -5,7 +5,7 @@ import { render, screen, waitFor } from "../utils/test-utils";
 
 
 describe("MovieCard", () => {
-  it("should render the movie title", () => {
+  it("should render the movieCard", () => {
     const movieProps = {
       title: "Movie Title",
       year: 2022,
@@ -46,6 +46,7 @@ describe("MovieCard", () => {
       </MemoryRouter>
     );
 
+    // Providing a wrong src/thumbnail will result in a 404 image
     const image = await screen.findByAltText("Movie Title");
     waitFor(() => {
       expect(image).toHaveAttribute("src", "./404.png");
