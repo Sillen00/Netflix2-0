@@ -30,6 +30,9 @@ function Footer() {
             Simon
           </NavLink>
         </Box>
+        <Box className='logo-box'>
+          <Title order={2}>NETFLIX 2.0</Title>
+        </Box>
       </Box>
     </StyledFooter>
   );
