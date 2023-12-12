@@ -7,7 +7,6 @@ interface NotFoundPageProps {
 
 function NotFoundPage({ movieViewPage }: NotFoundPageProps) {
   const location = useLocation();
-  // const formattedPath = `"${location.pathname.slice(1)}"`;
   const formattedPath = `"${
     movieViewPage ? location.pathname.slice(7) : location.pathname.slice(1)
   }"`;
