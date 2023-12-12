@@ -11,8 +11,8 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
+  gap: 0.5rem;
   height: 6rem;
-  gap: 0.75rem;
   color: white;
   > div {
     gap: 1.5rem;
@@ -65,6 +65,9 @@ export const StyledTitle = styled(Title)`
     font-size: 2.25rem;
     padding-top: 0.25rem;
   }
+  @media (max-width: 400px) {
+    font-size: 2.125rem;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -79,6 +82,9 @@ export const StyledNavLink = styled(NavLink)`
   }
   @media (max-width: ${breakpoints.xs}) {
     font-size: 1rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.9rem;
   }
 `;
 
