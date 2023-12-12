@@ -14,6 +14,7 @@ describe("Footer", () => {
     expect(screen.getByText("Categories")).toBeInTheDocument();
     expect(screen.getByText("Bookmarks")).toBeInTheDocument();
     expect(screen.getByText("GitHub profiles")).toBeInTheDocument();
+    expect(screen.getByText("NETFLIX 2.0")).toBeInTheDocument();
     expect(screen.getByText("Edvin")).toBeInTheDocument();
     expect(screen.getByText("Ellen")).toBeInTheDocument();
     expect(screen.getByText("Simon")).toBeInTheDocument();

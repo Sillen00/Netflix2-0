@@ -10,20 +10,28 @@ export const StyledFooter = styled.footer`
 
   .footer-container {
     display: flex;
-    justify-content: flex-start;
-    gap: 3rem;
-    margin: 1rem 1.5rem;
+    justify-content: space-between;
+    width: 60%;
+    gap: 1rem;
+    margin: 1rem auto;
+
+    @media (max-width: ${breakpoints.md}) {
+      width: 70%;
+    }
+
+    @media (max-width: ${breakpoints.sm}) {
+      width: 80%;
+      flex-wrap: wrap;
+    }
 
     .navigation-links-box {
       display: flex;
       flex-direction: column;
-      width: 130px;
     }
 
     .github-links-box {
       display: flex;
       flex-direction: column;
-      width: 130px;
     }
   }
 
@@ -41,18 +49,20 @@ export const StyledFooter = styled.footer`
     font-size: 3.5rem;
     font-weight: 500;
     white-space: nowrap;
-    color: #fff;
-    line-height: normal;
+    color: white;
+    line-height: 0.9;
     @media (max-width: ${breakpoints.md}) {
       font-size: 3.25rem;
+      padding-top: 0.2rem;
     }
     @media (max-width: ${breakpoints.sm}) {
       font-size: 3rem;
-      display: none;
     }
     @media (max-width: ${breakpoints.xs}) {
       font-size: 2.25rem;
-      padding-top: 0.25rem;
+    }
+    @media (max-width: 400px) {
+      font-size: 2.125rem;
     }
   }
 `;
