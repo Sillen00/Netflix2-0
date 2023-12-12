@@ -7,11 +7,11 @@ import InceptionPoster from "../../assets/InceptionPoster.jpeg";
 import { Movie } from "../../utils/dataTypes";
 import { StyledVideoContainer } from "./MediaSection.style";
 
-interface VideoProps {
+interface MediaSectionProps {
   movies: Movie[];
 }
 
-function Video({ movies }: VideoProps) {
+function MediaSection({ movies }: MediaSectionProps) {
   // Ref för att komma åt video-elementet
   const videoRef = useRef<HTMLVideoElement>(null);
   // State för att visa poster-bild eller video
@@ -74,4 +74,4 @@ function Video({ movies }: VideoProps) {
   );
 }
 
-export default Video;
+export default MediaSection;

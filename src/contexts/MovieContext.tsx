@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import data from "../../data/movies.json";
 import { Movie } from "../utils/dataTypes";
 
-export interface MovieContextValue {
+interface MovieContextValue {
   movies: Movie[];
   bookmarkedMovies: Movie[];
   setBookmarkedMovies: (bookmarkedMovies: Movie[]) => void;
