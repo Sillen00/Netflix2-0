@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
+import breakpoints from "../../utils/breakpoints";
 
 export const StyledCategoryButton = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 
-  @media (max-width: 1240px) {
+  @media (max-width: ${breakpoints.lg}) {
     justify-content: left;
   }
 

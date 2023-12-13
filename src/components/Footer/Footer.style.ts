@@ -38,7 +38,6 @@ export const StyledFooter = styled.footer`
   a {
     max-width: 50px;
     color: #fff;
-    text-decoration: none;
     :hover {
       opacity: 0.7;
     }

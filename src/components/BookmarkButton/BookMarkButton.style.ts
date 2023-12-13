@@ -5,8 +5,6 @@ export const StyledBookmarkButton = styled.button`
   background: none;
   border: none;
   position: absolute;
-  color: white;
-  cursor: pointer;
   color: #a26a10;
   right: 4px;
   bottom: 8px;
