@@ -1,23 +1,23 @@
 import { Box, Image, Text, Title } from "@mantine/core";
-
-import { useState } from "react";
+import { useRef } from "react";
+import notFoundImage from "../../assets/404.png";
 import { Movie } from "../../utils/dataTypes";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import { StyledMovieView } from "./MovieView.style";
 
 function MovieView(movie: Movie) {
-  const [imageSrc, setImageSrc] = useState(movie.thumbnail);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const { title, genre, synopsis, year, rating, actors, thumbnail } = movie;
 
-  // If the movie image fails to load, replace it with the placeholder image
   const handleImageError = () => {
-    setImageSrc("../404.png");
+    if (imageRef.current) {
+      imageRef.current.src = notFoundImage;
+    }
   };
-  // Destructure the movie object
-  const { title, genre, synopsis, year, rating, actors } = movie;
 
   return (
     <StyledMovieView>
-      <Image src={imageSrc} onError={handleImageError} alt={title} />
+      <Image ref={imageRef} src={thumbnail} onError={handleImageError} alt={title} />
       <Box className='text'>
         <Box className='top'>
           <Box className='meta'>

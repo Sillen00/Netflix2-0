@@ -69,3 +69,11 @@ body {
     background-position: 0% 50%;
   }
 }
+
+.not-found-flex {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100dvh - 282px);
+}

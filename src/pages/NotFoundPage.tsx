@@ -14,14 +14,7 @@ function NotFoundPage({ movieViewPage }: NotFoundPageProps) {
   }"`;
 
   return (
-    <Flex
-      style={{
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "500px",
-      }}
-    >
+    <Flex className='not-found-flex'>
       <Title order={2}>
         The {movieViewPage ? "movie" : "page"} {formattedPath} was not found.
       </Title>
