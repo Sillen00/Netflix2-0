@@ -36,6 +36,10 @@ body {
   animation: AnimationName 30s ease infinite;
 }
 
+a {
+  text-decoration: none;
+}
+
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
