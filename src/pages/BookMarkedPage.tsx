@@ -1,10 +1,11 @@
+import { Box } from "@mantine/core";
 import BookmarkedMovies from "../components/BookmarkedMovies/BookmarkedMovies";
 
 function BookmarkedPage() {
   return (
-    <div>
+    <Box>
       <BookmarkedMovies />
-    </div>
+    </Box>
   );
 }
 

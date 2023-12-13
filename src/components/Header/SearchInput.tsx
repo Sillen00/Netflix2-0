@@ -16,9 +16,13 @@ function SearchInput({
   searchInput,
   setSearchInput,
 }: SearchInputProps) {
+  // Ref for accessing the input element
   const inputRef = useRef<HTMLInputElement>(null);
+  // Ref for accessing the clear button element
   const clearRef = useRef<HTMLButtonElement>(null);
+  // Location used to get the current path
   const location = useLocation();
+  // Function for toggling the search input and focusing it
   const toggleSearch = () => {
     setSearchOpen(!isSearchOpen);
     inputRef.current?.focus();
@@ -29,12 +33,13 @@ function SearchInput({
     inputRef.current?.focus();
   };
 
+  // Closes the search input and clears the input when the user navigates to a new page
   useEffect(() => {
-    // stäng search när vi byter sida
     setSearchOpen(false);
     setSearchInput("");
   }, [location.pathname, setSearchOpen, setSearchInput]);
 
+  // Closes the search input when the user clicks outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!searchInput) {
@@ -48,8 +53,10 @@ function SearchInput({
       }
     };
 
+    // Event listener for clicks outside of the search input
     document.addEventListener("mousedown", handleClickOutside);
 
+    // Cleanup
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };

@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Grid, Text } from "@mantine/core";
 import { useContext } from "react";
 import { MovieContext } from "../../contexts/MovieContext";
 import MovieCard from "../MovieCard/MovieCard";
@@ -9,8 +9,9 @@ function BookmarkedMovies() {
 
   return (
     <StyleBookmarkedMovie>
+      {/* If no movies are bookmarked, show a message */}
       {bookmarkedMovies.length === 0 && (
-        <p className='empty-bookmark-message'>You dont have any movies bookmarked.</p>
+        <Text className='empty-bookmark-message'>You dont have any movies bookmarked.</Text>
       )}
       <Grid gutter={20}>
         {bookmarkedMovies.map(movie => (
