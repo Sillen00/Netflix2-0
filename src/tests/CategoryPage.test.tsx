@@ -24,6 +24,7 @@ describe("Category Page", () => {
     );
     const user = userEvent.setup();
     await user.click(screen.getByText("Music"));
+    //Expect "Whiplash" movie to be rendered.
     expect(screen.getByText("Whiplash")).toBeInTheDocument();
   });
 });

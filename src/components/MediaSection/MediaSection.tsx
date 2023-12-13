@@ -1,28 +1,26 @@
-import { AspectRatio, Box, Title, UnstyledButton } from "@mantine/core";
+import { AspectRatio, Box, Image, Title, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Inception from "../../assets/Inception.mp4";
 import InceptionPoster from "../../assets/InceptionPoster.jpeg";
-import { Movie } from "../../contexts/MovieContext";
+import { Movie } from "../../utils/dataTypes";
 import { StyledVideoContainer } from "./MediaSection.style";
 
-interface Prop {
+interface MediaSectionProps {
   movies: Movie[];
 }
 
-function Video({ movies }: Prop) {
-  // Ref för att komma åt video-elementet
+function MediaSection({ movies }: MediaSectionProps) {
+  //Ref for accessing the video element
   const videoRef = useRef<HTMLVideoElement>(null);
-  // State för att visa poster-bild eller video
   const [showPoster, setShowPoster] = useState(true);
-  // State för att visa unMute eller mute ikon
   const [isMuted, setIsMuted] = useState(true);
 
-  // Hämta Inception-filmen från movies-arrayen
+  // Finds the movie Inception from the movies array and sets it to a variable
   const movie = movies.find(movie => movie.title === "Inception");
 
-  // Funktion för att mutea och unMutea videon
+  // Funktion for mute/unmute video
   const handleMute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
@@ -30,7 +28,7 @@ function Video({ movies }: Prop) {
     }
   };
 
-  // När komponenten mountas, starta en timer som efter 3 sekunder stänger av poster-bilden och startar videon
+  // Starts a timer when the component mounts. After 3 seconds, the poster image is hidden and the video starts playing.
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPoster(false);
@@ -38,7 +36,7 @@ function Video({ movies }: Prop) {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []); // Tom array för att useEffect bara ska köras en gång
+  }, []); // Empty array to only run once
 
   return (
     <StyledVideoContainer>
@@ -62,8 +60,9 @@ function Video({ movies }: Prop) {
         </Box>
         <AspectRatio ratio={16 / 9} className='aspect-ratio-media'>
           {showPoster ? (
-            <img src={InceptionPoster} alt='Inception poster' />
+            <Image src={InceptionPoster} alt='Inception poster' />
           ) : (
+            // When the video ends, the poster image is shown again
             <video ref={videoRef} autoPlay muted onEnded={() => setShowPoster(true)}>
               <source src={Inception} type='video/mp4' />
             </video>
@@ -74,4 +73,4 @@ function Video({ movies }: Prop) {
   );
 }
 
-export default Video;
+export default MediaSection;

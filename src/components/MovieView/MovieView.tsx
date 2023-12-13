@@ -1,61 +1,30 @@
-import { useContext } from "react";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { Movie, MovieContext } from "../../contexts/MovieContext";
 import { Box, Image, Text, Title } from "@mantine/core";
+
 import { useState } from "react";
+import { Movie } from "../../utils/dataTypes";
+import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import { StyledMovieView } from "./MovieView.style";
 
-interface Props {
-  movie: Movie;
-}
-
-function MovieView({ movie }: Props) {
+function MovieView(movie: Movie) {
   const [imageSrc, setImageSrc] = useState(movie.thumbnail);
 
+  // If the movie image fails to load, replace it with the placeholder image
   const handleImageError = () => {
     setImageSrc("../404.png");
   };
+  // Destructure the movie object
   const { title, genre, synopsis, year, rating, actors } = movie;
-
-  const { bookmarkedMovies, setBookmarkedMovies } = useContext(MovieContext);
-
-  const handleBookmarkClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
-    e.preventDefault();
-
-    // Check if the movie is already bookmarked
-    const isBookmarked = bookmarkedMovies.some(m => m.title === movie.title);
-
-    // If it's bookmarked, remove it; otherwise, add it
-    const updatedBookmarkedMovies = isBookmarked
-      ? bookmarkedMovies.filter(m => m.title !== movie.title)
-      : [...bookmarkedMovies, movie];
-
-    // Update the bookmarkedMovies state with the new array
-    setBookmarkedMovies(updatedBookmarkedMovies);
-  };
 
   return (
     <StyledMovieView>
       <Image src={imageSrc} onError={handleImageError} alt={title} />
       <Box className='text'>
         <Box className='top'>
-          <Box>
-            <Title order={4}>
-              <b>Year: </b>
-              {year}
-            </Title>
-            <Title order={4}>
-              <b>Rating: </b>
-              {rating}
-            </Title>
+          <Box className='meta'>
+            <Title order={4}>{year}</Title>
+            <Title order={4}>{rating}</Title>
           </Box>
-          <Box onClick={handleBookmarkClick} className='bookmark'>
-            {bookmarkedMovies.some(m => m.title === movie.title) ? (
-              <FaBookmark size={"30px"} />
-            ) : (
-              <FaRegBookmark size={"30px"} />
-            )}
-          </Box>
+          <BookmarkButton {...movie} />
         </Box>
         <Box>
           <Title order={1}>{title}</Title>
@@ -70,7 +39,6 @@ function MovieView({ movie }: Props) {
               </Text>
             ))}
           </Box>
-
           <Text span>Genre: {genre}</Text>
         </Box>
       </Box>

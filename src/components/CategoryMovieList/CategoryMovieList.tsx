@@ -9,7 +9,7 @@ function CategoryMovieList() {
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const { movies } = useContext(MovieContext);
 
-  // Filter movies based on selected genre
+  // Filter movies based on selected genre (CategoryButton component)
   const filteredMovies = selectedGenre
     ? movies.filter(movie => movie.genre.includes(selectedGenre))
     : movies;
