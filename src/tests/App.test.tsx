@@ -6,6 +6,7 @@ import Header from "../components/Header/Header";
 import BookmarkedPage from "../pages/BookMarkedPage";
 import CategoryPage from "../pages/CategoryPage";
 import MovieViewPage from "../pages/MovieViewPage";
+import NotFoundPage from "../pages/NotFoundPage";
 import StartPage from "../pages/StartPage";
 import { render, screen, within } from "../utils/test-utils";
 
@@ -23,6 +24,7 @@ describe("App Functionality", () => {
     const image = await screen.findByAltText("The Matrix");
     expect(image).toBeInTheDocument();
   });
+  
   it("should be able to navigate from Read more to MovieViewPage for Inception", async () => {
     render(
       <MemoryRouter>
@@ -39,6 +41,18 @@ describe("App Functionality", () => {
         "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster."
       )
     ).toBeInTheDocument();
+  });
+
+  it("should render the 404 page if the url route does not exist", async () => {
+    render(
+      <MemoryRouter initialEntries={["/fff"]}>
+        <Routes>
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('The page "fff" was not found.')).toBeInTheDocument();
   });
 });
 
@@ -57,6 +71,7 @@ describe("Navigation between startpage and categorypage", () => {
     await user.click(screen.getByText("Categories"));
     expect(screen.getByRole("button", { name: "Action" })).toBeInTheDocument();
   });
+
   it("should be able to navigate from categorypage to startpage", async () => {
     render(
       <MemoryRouter initialEntries={["/categories"]}>
@@ -89,6 +104,7 @@ describe("Navigation between startpage and bookmarkedpage", () => {
     await user.click(screen.getByText("Bookmarks"));
     expect(screen.getByText("You dont have any movies bookmarked.")).toBeInTheDocument();
   });
+
   it("should be able to navigate from bookmarkedpage to startpage", async () => {
     render(
       <MemoryRouter initialEntries={["/bookmarks"]}>
@@ -128,6 +144,7 @@ describe("should be able to navigate between startpage and movieviewpage", () =>
       )
     ).toBeInTheDocument();
   });
+
   it("should be able to navigate from movieviewpage to startpage", async () => {
     render(
       <MemoryRouter initialEntries={["/movie/some-movie"]}>
@@ -144,6 +161,7 @@ describe("should be able to navigate between startpage and movieviewpage", () =>
     expect(screen.getByText("Trending")).toBeInTheDocument();
   });
 });
+
 it("should be able to navigate from categories to movieviewpage", async () => {
   render(
     <MemoryRouter>
