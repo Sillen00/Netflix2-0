@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import Footer from "../components/Footer/Footer";
 import { render, screen } from "../utils/test-utils";
@@ -6,9 +6,9 @@ import { render, screen } from "../utils/test-utils";
 describe("Footer", () => {
   it("should render the footer", () => {
     render(
-      <Router>
+      <MemoryRouter>
         <Footer />
-      </Router>
+      </MemoryRouter>
     );
     expect(screen.getByText("Start")).toBeInTheDocument();
     expect(screen.getByText("Categories")).toBeInTheDocument();
@@ -22,9 +22,9 @@ describe("Footer", () => {
 
   it("should check if the github links is correct href", () => {
     render(
-      <Router>
+      <MemoryRouter>
         <Footer />
-      </Router>
+      </MemoryRouter>
     );
 
     const simonGithub = screen.getByText("Simon");

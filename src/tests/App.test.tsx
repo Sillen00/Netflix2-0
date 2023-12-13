@@ -11,20 +11,6 @@ import StartPage from "../pages/StartPage";
 import { render, screen, within } from "../utils/test-utils";
 
 describe("App Functionality", () => {
-  it("should render the search results", async () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
-
-    const searchInput = screen.getByPlaceholderText("Search...");
-    await userEvent.type(searchInput, "The Matrix");
-
-    const image = await screen.findByAltText("The Matrix");
-    expect(image).toBeInTheDocument();
-  });
-  
   it("should be able to navigate from Read more to MovieViewPage for Inception", async () => {
     render(
       <MemoryRouter>

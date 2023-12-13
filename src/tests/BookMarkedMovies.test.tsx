@@ -102,10 +102,3 @@ describe("Bookmarked", async () => {
     expect(await screen.findByText("You dont have any movies bookmarked.")).toBeInTheDocument();
   });
 });
-
-// const bookmarkedString = window.sessionStorage.getItem("bookmarked");
-// if (bookmarkedString) {
-//   console.log(JSON.parse(bookmarkedString));
-// } else {
-//   console.log("No movies.");
-// }

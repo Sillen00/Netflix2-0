@@ -3,20 +3,10 @@ import { describe, expect, it } from "vitest";
 import MovieCard from "../components/MovieCard/MovieCard";
 import { render, screen, waitFor } from "../utils/test-utils";
 
-interface MovieProps {
-  title: string;
-  year: number;
-  rating: string;
-  actors: string[];
-  genre: string;
-  synopsis: string;
-  thumbnail: string;
-  isTrending?: boolean;
-}
 
 describe("MovieCard", () => {
-  it("should render the movie title", () => {
-    const movieProps: MovieProps = {
+  it("should render the movieCard", () => {
+    const movieProps = {
       title: "Movie Title",
       year: 2022,
       rating: "PG-13",
@@ -39,7 +29,7 @@ describe("MovieCard", () => {
   });
 
   it("should show a placeholder image if no thumbnail is provided", async () => {
-    const movieProps: MovieProps = {
+    const movieProps = {
       title: "Movie Title",
       year: 2022,
       rating: "PG-13",
@@ -56,6 +46,7 @@ describe("MovieCard", () => {
       </MemoryRouter>
     );
 
+    // Providing a wrong src/thumbnail will result in a 404 image
     const image = await screen.findByAltText("Movie Title");
     waitFor(() => {
       expect(image).toHaveAttribute("src", "./404.png");
