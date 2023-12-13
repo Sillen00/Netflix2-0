@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import breakpoints from "../../utils/breakpoints";
 
 export const StyledMovieView = styled.div`
   display: flex;
@@ -14,26 +15,29 @@ export const StyledMovieView = styled.div`
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
     margin-bottom: 1rem;
   }
 
   h4 {
-    font-size: 1.25rem;
-    font-weight: lighter;
+    font-size: clamp(0.875rem, 1.25vw, 1.25rem);
   }
 
   h5 {
-    font-size: 1.85rem;
-    font-weight: lighter;
+    font-size: clamp(1rem, 1.85vw, 1.85rem);
+  }
+
+  h4,
+  h5 {
+    font-weight: 500;
   }
 
   p {
-    font-size: 1.55rem;
+    font-size: clamp(1rem, 1.55vw, 1.55rem);
   }
 
   span {
-    font-size: 1.2rem;
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   }
 
   .meta {
@@ -45,14 +49,11 @@ export const StyledMovieView = styled.div`
     h4:last-of-type {
       background-color: #333;
       padding: 0 0.375rem;
-      font-size: 0.85rem;
+      font-size: clamp(0.7rem, 0.85vw, 0.85rem);
       border-radius: 0.125rem;
-      padding: 0 6px;
+      padding: 0 0.375rem;
       color: #fff;
     }
-  }
-  .title {
-    font-weight: bold;
   }
 
   > div {
@@ -74,22 +75,18 @@ export const StyledMovieView = styled.div`
     }
   }
 
-  .bookmark {
-    color: white;
-  }
-
   .text {
     justify-content: space-evenly;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: ${breakpoints.lg}) {
     gap: 2rem;
     > div {
       gap: 1rem;
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: ${breakpoints.md}) {
     padding: 2rem;
     gap: 4rem;
     flex-direction: column;
@@ -97,29 +94,7 @@ export const StyledMovieView = styled.div`
 
     img {
       width: 80vw;
-      max-width: 400px;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: lighter;
-    }
-
-    h5 {
-      font-size: 1rem;
-      font-weight: lighter;
-    }
-
-    p {
-      font-size: 1.25rem;
-    }
-
-    .synopsis {
-      font-size: 1.25rem;
+      max-width: 25rem;
     }
   }
 `;
