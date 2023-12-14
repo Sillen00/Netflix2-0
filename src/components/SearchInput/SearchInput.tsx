@@ -10,7 +10,6 @@ interface SearchInputProps {
   searchInput: string;
   setSearchInput: (input: string) => void;
 }
-
 function SearchInput({
   isSearchOpen,
   setSearchOpen,
@@ -65,14 +64,13 @@ function SearchInput({
 
   return (
     <StyledSearchInput
+      name='search-bar'
       placeholder='Search...'
       autoComplete='off'
       size='md'
       ref={inputRef}
       value={searchInput}
-      onFocus={() => setSearchOpen(true)}
-      onBlur={() => setSearchOpen(false)}
-      onChange={(e: { currentTarget: { value: string } }) => setSearchInput(e.currentTarget.value)}
+      onChange={e => setSearchInput(e.currentTarget.value)}
       leftSectionPointerEvents={isSearchOpen ? "none" : "all"}
       leftSection={
         <ActionIcon
@@ -91,12 +89,14 @@ function SearchInput({
           <CloseButton
             iconSize='1.5rem'
             ref={clearRef}
+            className='close'
             variant='transparent'
             aria-label='Clear input'
             onClick={clearInput}
           />
         )
       }
+      isSearchOpen={isSearchOpen}
     />
   );
 }

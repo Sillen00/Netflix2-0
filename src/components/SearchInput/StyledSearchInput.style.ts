@@ -1,41 +1,42 @@
 import styled from "@emotion/styled";
-import { TextInput } from "@mantine/core";
+import { InputProps, TextInput } from "@mantine/core";
 import breakpoints from "../../utils/breakpoints";
 
-export const StyledSearchInput = styled(TextInput)`
-  min-height: 20px;
-  padding-top: 2px;
+interface StyledInputProps extends InputProps {
+  isSearchOpen: boolean;
+}
 
+export const StyledSearchInput = styled(TextInput, {
+  shouldForwardProp: prop => !["isSearchOpen"].includes(prop),
+})<StyledInputProps>`
   .mantine-Input-input {
-    color: white;
-    transition: width 0.2s ease 0s;
     background-color: transparent;
-    border: none;
-    width: 0;
-    padding-left: 20px;
+    border: ${props => (props.isSearchOpen ? "1px solid rgb(255,255,255,0.6)" : "none")};
+    color: white;
+    width: ${props => (props.isSearchOpen ? "280px" : "0")};
+    transition: width 0.2s;
+    min-height: 20px;
+    height: 38px;
+    padding-top: 2px;
+    padding-left: ${props => (props.isSearchOpen ? "40px" : "20px")};
     @media (max-width: ${breakpoints.sm}) {
-      transition: none;
+      width: ${props => (props.isSearchOpen ? "260px" : "0")};
+      transition: width 0s; /* Instant transition */
     }
-
-    &:focus {
-      border: 1px solid rgb(255, 255, 255, 0.6);
-      width: 280px;
-      padding-left: 40px;
-      @media (max-width: ${breakpoints.sm}) {
-        width: 260px;
-        min-height: 34px;
-        height: 34px;
-        transition: none;
-      }
-      @media (max-width: 424px) {
-        width: 100%;
-      }
+    @media (max-width: ${breakpoints.xs}) {
+      transition: width 0s; /* Instant transition */
+      height: 34px;
+    }
+    @media (max-width: 424px) {
+      width: ${props => (props.isSearchOpen ? "100%" : "0")};
     }
   }
-
   .search-action-icon {
     &:hover {
       opacity: 0.7;
     }
+  }
+  .close {
+    color: white;
   }
 `;
