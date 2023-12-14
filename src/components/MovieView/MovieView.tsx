@@ -18,23 +18,21 @@ function MovieView(movie: Movie) {
   return (
     <StyledMovieView>
       <Image ref={imageRef} src={thumbnail} onError={handleImageError} alt={title} />
-      <Box className='text'>
+      <Box>
         <Box className='top'>
           <Box className='meta'>
-            <Title order={4}>{year}</Title>
+            <Text span>{year}</Text>
             <Title order={4}>{rating}</Title>
           </Box>
           <BookmarkButton {...movie} />
         </Box>
+        <Title order={1}>{title}</Title>
+        <Text>{synopsis}</Text>
         <Box>
-          <Title order={1}>{title}</Title>
-          <Text>{synopsis}</Text>
-        </Box>
-        <Box className='bottom'>
           <Box>
             <Text span>Actors: </Text>
             {actors.map((actor, index) => (
-              <Text span variant='span' key={index}>
+              <Text span key={index}>
                 {actor}{" "}
               </Text>
             ))}
