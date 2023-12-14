@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import breakpoints from "../../utils/breakpoints";
 
 export const StyledMovieCarousel = styled.div`
+  margin: 3rem 0;
   margin-left: 1.5rem;
-  margin-top: 2rem;
 
   .mantine-Carousel-control {
     box-shadow: none;
