@@ -45,7 +45,6 @@ export const StyledVideoContainer = styled.div`
       align-items: center;
 
       .action-link {
-        text-decoration: none;
         :hover {
           font-weight: bold;
         }

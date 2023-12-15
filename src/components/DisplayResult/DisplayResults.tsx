@@ -2,7 +2,7 @@ import { Box, SimpleGrid, Text } from "@mantine/core";
 import { useMemo } from "react";
 import movies from "../../../data/movies.json";
 import MovieCard from "../MovieCard/MovieCard";
-import { StyledSearchResultDisplayContainer } from "./Header.style";
+import { StyledDisplayResult } from "./DisplayResult.style";
 
 interface DisplayResultsProps {
   searchInput: string;
@@ -16,7 +16,7 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
   }, [searchInput]);
 
   return (
-    <StyledSearchResultDisplayContainer>
+    <StyledDisplayResult>
       {/*If the search input does not match any movie title, show a message, otherwise render the movie cards*/}
       {filteredMovies.length > 0 ? (
         <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} verticalSpacing={{ base: "md", sm: "xl" }}>
@@ -31,7 +31,7 @@ function DisplayResults({ searchInput }: DisplayResultsProps) {
           {`Your search for "${searchInput}" did not have any matches.`}
         </Text>
       )}
-    </StyledSearchResultDisplayContainer>
+    </StyledDisplayResult>
   );
 }
 

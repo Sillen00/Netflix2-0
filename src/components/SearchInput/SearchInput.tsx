@@ -2,7 +2,7 @@ import { ActionIcon, CloseButton } from "@mantine/core";
 import { useEffect, useRef } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
-import { StyledInput } from "./Header.style";
+import { StyledSearchInput } from "./StyledSearchInput.style";
 
 interface SearchInputProps {
   isSearchOpen: boolean;
@@ -63,7 +63,7 @@ function SearchInput({
   }, [location, setSearchOpen, setSearchInput, searchInput]);
 
   return (
-    <StyledInput
+    <StyledSearchInput
       name='search-bar'
       placeholder='Search...'
       autoComplete='off'
@@ -73,7 +73,12 @@ function SearchInput({
       onChange={e => setSearchInput(e.currentTarget.value)}
       leftSectionPointerEvents={isSearchOpen ? "none" : "all"}
       leftSection={
-        <ActionIcon className='search-action-icon' variant='transparent' aria-label="search button" onClick={toggleSearch}>
+        <ActionIcon
+          className='search-action-icon'
+          variant='transparent'
+          aria-label='search button'
+          onClick={toggleSearch}
+        >
           <IoSearchOutline color='white' size='1.5rem' />
         </ActionIcon>
       }
@@ -83,14 +88,11 @@ function SearchInput({
         searchInput && (
           <CloseButton
             iconSize='1.5rem'
-            color='white!important'
             ref={clearRef}
+            className='close'
             variant='transparent'
             aria-label='Clear input'
             onClick={clearInput}
-            style={{
-              color: "white",
-            }}
           />
         )
       }
