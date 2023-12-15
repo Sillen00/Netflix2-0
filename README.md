@@ -23,7 +23,7 @@ We have created tests for many of the react components in the project to ensure 
 
 ## Live Page
 
-You can access the live page of this project on GitHub Pages. Click [here](https://sillen00.github.io/Netflix2-0/) to visit the live page.
+You can access the live page of this project on Netlify. Click [here](https://netflix2dot0.netlify.app/) to visit the live page.
 
 ## Participents
 
