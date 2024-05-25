@@ -70,7 +70,7 @@ describe("Navigation between startpage and categorypage", () => {
       </MemoryRouter>
     );
     const user = userEvent.setup();
-    await user.click(screen.getByRole("heading", {level: 1, name: "NETFLIX 2.0" }));
+    await user.click(screen.getByRole("heading", { level: 1, name: "NETFLIX 2.0" }));
     expect(screen.getByText("Trending")).toBeInTheDocument();
   });
 });
@@ -104,7 +104,7 @@ describe("Navigation between startpage and bookmarkedpage", () => {
     );
 
     const user = userEvent.setup();
-    await user.click(screen.getByRole("heading", {level: 1, name: "NETFLIX 2.0" }));
+    await user.click(screen.getByRole("heading", { level: 1, name: "NETFLIX 2.0" }));
     expect(screen.getByText("Trending")).toBeInTheDocument();
   });
 });
@@ -143,7 +143,7 @@ describe("should be able to navigate between startpage and movieviewpage", () =>
       </MemoryRouter>
     );
     const user = userEvent.setup();
-    await user.click(screen.getByRole("heading", {level: 1, name: "NETFLIX 2.0" }));
+    await user.click(screen.getByRole("heading", { level: 1, name: "NETFLIX 2.0" }));
     expect(screen.getByText("Trending")).toBeInTheDocument();
   });
 });

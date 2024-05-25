@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import MovieCard from "../components/MovieCard/MovieCard";
 import { render, screen, waitFor } from "../utils/test-utils";
 
-
 describe("MovieCard", () => {
   it("should render the movieCard", () => {
     const movieProps = {
